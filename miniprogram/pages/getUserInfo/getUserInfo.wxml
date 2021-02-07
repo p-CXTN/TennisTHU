@@ -1,0 +1,71 @@
+<!--miniprogram/pages/getUserInfo/getUserInfo.wxml-->
+<view class="page-body">
+  <view class="page-section">
+  
+    <view class="input-row">
+      <view class="input-guide">{{content.gui_realname}}</view>
+      <input class="inputt" bindblur="getRealName"  type="text" maxlength='20' auto-focus='true'/>
+    </view>
+
+    <view class="input-row">
+      <view class="input-guide">{{content.gui_stuid}}</view>
+      <input class="inputt" bindblur="getstuid"  type="number" placeholder="{{content.gui_stuidph}}" maxlength='40'/>
+    </view>
+
+    <view class="warning">
+      <view class="warningtxt">{{content.gui_warning}}</view>
+    </view>
+
+    <view class="input-row">
+      <view class="input-guide">{{content.gui_pwd}}</view>
+      <input class="inputt" bindblur="getpassword"  type="password" placeholder="{{content.gui_pwdph}}" maxlength='20'/>
+    </view>
+
+    <view class="input-row">
+      <view class="input-guide">{{content.gui_gender}}</view>
+      <picker range="{{genderarray}}" bindchange='getGender'>{{genderarray[genderindex]}}</picker>
+    </view>
+
+    <view class="input-row">
+      <view class="input-guide">{{content.gui_ntrp}}</view>
+      <picker range="{{ratingarray}}" bindchange='getRating'>{{ratingarray[ratingindex]}}</picker>
+    </view>
+    <view class="guidetexts">
+      <view class="hinttext">{{content.ntrphint}}</view>
+    </view>
+
+    <view class="input-row">
+      <view class="input-guide">{{content.gui_school}}</view>
+      <input class="inputt" bindblur="getSchool" placeholder="{{content.gui_schoolph}}" type="text" maxlength='20'/>
+    </view>
+
+    <view class="input-row">
+      <view class="input-guide">{{content.gui_department}}</view>
+      <input class="inputt" bindblur="getDepartment" placeholder="{{content.gui_departmentph}}" type="text" maxlength='20'/>
+    </view>
+
+    <view class="input-row">
+      <view class="input-guide">{{content.gui_grade}}</view>
+        <input class="inputt" bindblur="getGrade" placeholder="{{content.gui_gradeph}}" type="text" maxlength='20'/>
+    </view>
+
+    <view class="input-row">
+      <view class="input-guide">{{content.gui_phone}}</view>
+        <input class="inputt" bindblur="getPhone"  type="number" maxlength='20'/>
+    </view>
+
+    <view class="input-row">
+      <view class="input-guide">{{content.gui_phand}}</view>
+      <picker range="{{phandarray}}" bindchange='getPhand'>{{phandarray[phandindex]}}</picker>
+    </view>
+
+    <view class="input-row">
+      <view class="input-guide">{{content.gui_bhand}}</view>
+      <picker range="{{bhandarray}}" bindchange='getBhand'>{{bhandarray[bhandindex]}}</picker>
+    </view>
+
+  </view>
+  <view class="submitbuttonview">
+    <button class="submitbutton" bindtap="submit">{{content.submitinfo}}</button>
+  </view>
+</view>

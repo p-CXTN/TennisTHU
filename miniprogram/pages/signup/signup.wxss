@@ -1,0 +1,73 @@
+/* miniprogram/pages/signup/signup.wxss */
+navigator{
+  display:inline;
+}
+ 
+.list_item{
+  margin-top:0;
+  padding:10px;
+  height: 400rpx;
+  border-bottom:1px solid #E8E8E8;
+  border-top: 1px solid #E8E8E8;
+}
+ 
+.list_item .info{
+  width:100%;
+  float:left;
+  height:30px;
+  position:relative;
+}
+.list_item .info .title{
+  color:#333;
+  margin-left:10rpx;
+  margin-top: 20rpx;
+  font-size: 20px;
+}
+.list_item .info .description{
+  color:rgba(51, 51, 51, 0.74);
+  margin-left:10rpx;
+  margin-top: 40rpx;
+  font-size: 15px;
+}
+.list_item .info .date{
+  float: left;
+  color:rgba(51, 51, 51, 0.466);
+  margin-left:10rpx;
+  margin-top: 170rpx;
+  font-size: 13px;
+}
+
+.moreinfoc{
+  width: 50%;
+  float: left;
+}
+
+.signupc{
+  width:50%;
+  float: right;
+  color: #fff;
+  background-color: rgba(133, 55, 161, 0.788);
+}
+.img-wrapper{
+  margin-top: 350rpx;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 300rpx;
+  display: flex;
+}
+.img{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:100%;
+  width:300rpx;
+}
+.txt{
+  float:left;
+  margin-top: 15px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

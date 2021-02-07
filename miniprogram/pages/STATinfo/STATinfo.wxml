@@ -1,0 +1,116 @@
+<!--miniprogram/pages/STATinfo/STATinfo.wxml-->
+<view class="ctner">
+  <view class="img">
+    <image src="../../images/matchinfo1.png"  mode="aspectFit"/>
+    <image src="../../images/matchinfo3.png"  mode="aspectFit"/>
+  </view>
+  <view class="title">
+    <text>{{content.erl_title}}</text>
+  </view>
+  <view class="title">
+    <text>{{content.erl_titleb}}</text>
+  </view>
+  <view class="welcome">
+    <text>{{content.erl_welcome}}</text>
+  </view>
+  <view class="intro">
+    <text>{{content.erl_intro}}</text>
+  </view>
+  <view class="coach">
+    <text>{{content.erl_coach}}</text>
+  </view>
+  <view class="QnA">Q&A：</view>
+  <view class="qatitle">
+    <text>{{content.erl_title1}}</text>
+  </view>
+  <view class="qs">
+    <text>{{content.erl_q1}}</text>
+  </view>
+  <view class="as">
+    <text>{{content.erl_a1}}</text>
+  </view>
+  <view class="qs">
+    <text>{{content.erl_q2}}</text>
+  </view>
+  <view class="as">
+    <text>{{content.erl_a2}}</text>
+  </view>
+  <view class="qs">
+    <text>{{content.erl_q3}}</text>
+  </view>
+  <view class="as">
+    <text>{{content.erl_a3}}</text>
+  </view>
+    
+  <view class="lctner">
+    <view class="levels_ctner">
+      <view class="levels">{{content.erl_levelA}}</view>
+      <view class="levels">{{content.erl_levelB}}</view>
+      <view class="levels">{{content.erl_levelC}}</view>
+      <view class="levels">{{content.erl_levelD}}</view>
+    </view>
+  </view>
+  
+  <view class="qs">
+    <text>{{content.erl_q4}}</text>
+  </view>
+  <view class="as">
+    <text>{{content.erl_a4}}</text>
+  </view>
+  <view class="qs">
+    <text>{{content.erl_q5}}</text>
+  </view>
+  <view class="as">
+    <text>{{content.erl_a5}}</text>
+  </view>
+  <view class="qs">
+    <text>{{content.erl_q55}}</text>
+  </view>
+  <view class="as">
+    <text>{{content.erl_a55}}</text>
+  </view>
+  
+  <view class="qatitle">
+    <text>{{content.erl_title2}}</text>
+  </view>
+  <view class="qs">
+    <text>{{content.erl_q6}}</text>
+  </view>
+  <view class="as">
+    <text>{{content.erl_a6}}</text>
+  </view>
+  <view class="qs">
+    <text>{{content.erl_q7}}</text>
+  </view>
+  <view class="as">
+    <text>{{content.erl_a7}}</text>
+  </view>
+  
+  <view class="qatitle">
+    <text>{{content.erl_title3}}</text>
+  </view>
+  <view class="qs">
+    <text>{{content.erl_q8}}</text>
+  </view>
+  <view class="as">
+    <text>{{content.erl_a8}}</text>
+  </view>
+  <view class="qs">
+    <text>{{content.erl_q9}}</text>
+  </view>
+  <view class="as">
+    <text>{{content.erl_a9}}</text>
+  </view>
+
+  <view class="apply">
+    <button bindtap="bindapply" type="confirm" class="applybutton">{{content.signupnowbutton}}</button>
+  </view>
+</view>
+
+<view class="weui-footer">
+    <view class="weui-footer__links">
+    <navigator url="https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzA4NTAzMDQ4Mg==&scene=126&bizpsid=0#wechat_redirect" class="weui-footer__link">清华大学学生网球协会</navigator>
+    </view>
+    <view class="weui-footer__text">Copyright © 清华大学学生网球协会</view>
+  </view>
+

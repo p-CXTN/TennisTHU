@@ -1,0 +1,102 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <button 
+      open-type="getUserInfo" 
+      bindgetuserinfo="onGetUserInfo"
+      class="userinfo-avatar"
+      style="background-image: url({{avatarUrl}})"
+      disabled="{{logged}}"
+    ></button>
+  </view> 
+
+  <view wx:if="{{!logged}}" class="userinfo-nickname">
+    <text>{{content.notlogged}}</text>
+  </view>
+  <view class="userinfo-nickname">
+    <text>{{realname}}</text>
+  </view>
+
+  <view class="userinfo-info">
+    <text>{{nickname}}   {{school}}</text>
+  </view>
+
+  <view class="userinfo-rating">
+    <text>{{rating}} {{gender}}</text>
+  </view>
+
+</view>
+
+<view>
+  <view class='list'>
+    <view class="list_item">
+        <navigator url="../match/match">
+        <view class='img'>
+          <image src="../../images/record.png"  mode="aspectFit"/>
+        </view>
+        <view class='info'>
+          <view class='title'>{{content.record}}</view>
+        </view>
+        </navigator>
+        <view class='clear'></view>
+    </view>
+
+    <view class="list_item">
+        <navigator url="../STAT/STAT">
+        <view class='img'>
+          <image src="../../images/matches.png"  mode="aspectFit"/>
+        </view>
+        <view class='info'>
+          <view class='title'>{{content.myassociation}}</view>
+        </view>
+        </navigator>
+        <view class='clear'></view>
+    </view>
+
+    <view class="list_item">
+        <navigator url="../signup/signup">
+        <view class='img'>
+          <image src="../../images/signup.png"  mode="aspectFit"/>
+        </view>
+        <view class='info'>
+          <view class='title'>{{content.signup}}</view>
+        </view>
+        </navigator>
+        <view class='clear'></view>
+    </view>
+
+    <view class="list_item">
+        <navigator url="../manage/manage">
+        <view class='img'>
+          <image src="../../images/manage.png"  mode="aspectFit"/>
+        </view>
+        <view class='info'>
+          <view class='title'>{{content.manage}}</view>
+        </view>
+        </navigator>
+        <view class='clear'></view>
+    </view>
+
+    <view class="list_item">
+        <navigator url="../settings/settings">
+        <view class='img'>
+          <image src="../../images/settings.png"  mode="aspectFit"/>
+        </view>
+        <view class='info'>
+          <view class='title'>{{content.settings}}</view>
+        </view>
+        </navigator>
+        <view class='clear'></view>
+    </view>
+  </view>
+</view>
+
+<view class="list"></view>
+<view>
+  <view class="weui-footer">
+    <view class="weui-footer__links">
+      <button bindtap="changeLanguage" class="weui-footer__link">{{content.changelanguagebutton}}</button>
+    </view>
+    <view class="weui-footer__text">Copyright © {{content.association}}</view>
+  </view>
+</view>

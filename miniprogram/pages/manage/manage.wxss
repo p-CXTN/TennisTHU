@@ -1,0 +1,100 @@
+/* miniprogram/pages/manage/manage.wxss */
+navigator{
+  display:inline;
+}
+page{
+  background-color: #f7f7f7;
+}
+
+.userinfo, .uploader, .tunnel {
+  margin-top: 40rpx;
+  height: 150rpx;
+  width: 180rpx;
+  background: #f7f7f7;
+  border: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;  
+  transition: all 300ms ease;
+}
+
+.userinfo-avatar {
+  width: 150rpx;
+  height: 150rpx;
+  margin: 0;
+  border: 4rpx solid;
+  border-radius: 100%;
+  border-color: #8537A1;
+  background-size: cover;
+  background-color: #ffffff;
+}
+.userinfo-nickname {
+  font-size: 48rpx;
+  font-weight: bold;
+  background-size: cover;
+}
+.userinfo-rating {
+  color: #888;
+}
+
+.list{
+  margin-top:0;
+}
+ 
+.list .list_item{
+  margin: 30rpx auto;
+  padding:20rpx;
+  height:120rpx;
+  background-color: #ffffff;
+  border-bottom:1px solid #E8E8E8;
+  border-top: 1px solid #E8E8E8;
+}
+.list .list_item .img{
+  margin-top: 0;
+  float:left;
+  width:34%;
+  height:100%;
+}
+.list .list_item .img image{
+  margin-left: 100rpx;
+  width:100%;
+  height:100%;
+}
+ 
+.list .list_item .info{
+  width:60%;
+  float:right;
+  height:160rpx;
+  margin-top: 32rpx;
+  position:relative;
+}
+.list .list_item .info .title{
+  color:#333;
+  margin-left:20rpx;
+  font-size: 36rpx;
+}
+
+.img-wrapper{
+  margin-top: 350rpx;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 300rpx;
+  display: flex;
+}
+.img{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:100%;
+  width:300rpx;
+}
+.txt{
+  float:left;
+  margin-top: 15px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

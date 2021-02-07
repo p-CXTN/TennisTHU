@@ -1,0 +1,103 @@
+/* miniprogram/pages/STATinfo/STATinfo.wxss */
+.img{
+  margin-top: 0px;
+  height: 350rpx;
+  display: flex;
+  justify-content: center;  
+  align-items: center;
+}
+
+.title{
+  display: flex;
+  justify-content: center;
+  margin-top: 20rpx;
+  font-size: 60rpx;
+  font-weight: bold;
+}
+
+.welcome{
+  margin-left: 20rpx;
+  margin-top: 50rpx;
+  color: #000000e8;
+}
+
+.intro{
+  color: #000000c5;
+  margin-top: 75rpx;
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+  font-size: 16px;
+}
+
+.coach{
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+  color: #000000ec;
+  margin-top: 75rpx;
+  border-bottom:1px solid rgb(88, 88, 88);
+}
+
+.QnA{
+  margin-top: 50rpx;
+  margin-left: 10rpx;
+  font-size: 30px;
+}
+
+.qatitle{
+  margin-top: 30rpx;
+  display: flex;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.qs{
+  margin-top: 20rpx;
+  font-size: 18px;
+  color: rgba(0, 0, 0, 0.966)
+}
+
+.as{
+  margin-top: 15rpx;
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.836)
+}
+
+.moreinfo{
+  display:flex;
+  justify-content: left;
+  margin-left:20rpx;
+  margin-top: 50rpx;
+}
+
+.lctner{
+  display: flex;
+  justify-content: center;
+}
+
+.levels_ctner{
+  background-color: white;
+  width: 90%;
+  border:1px #000000;
+}
+
+.levels{
+  font-size:16px;
+  color: #000000ee;
+  margin-top: 15rpx;
+}
+
+.apply{
+  margin-top: 50rpx;
+  margin-bottom: 30rpx;
+  display: flex;
+  justify-content: center;
+}
+.applybutton{
+  width:90%;
+  color: #8537A1;
+  background-color:#F8F8F8;
+  border: 0.1rpx solid #8537A1;
+}

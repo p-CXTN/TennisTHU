@@ -1,0 +1,76 @@
+<!--miniprogram/pages/newmatch/newmatch.wxml-->
+<text>新建比赛请键入新比赛名称
+修改比赛信息请输入现有比赛名称并点击查询</text>
+<view class="page-body">
+  <view class="page-section">
+    <view class="textarea-wrp">
+      <input class="inputt" bindblur="getTitle"  type="text" placeholder="{{title}}" maxlength='20'/>
+    </view>
+  </view>
+
+  <view class="weui-button">
+  <button bindtap="lookup">查询</button>
+  </view>
+
+  <view class="page-section-title">时间：</view>
+  <view>
+    <input class="textarea-wrp" bindblur="getYear"  type="number" placeholder="{{year}}" maxlength='4'/>
+    <input class="textarea-wrp" bindblur="getMonth"  type="number" placeholder="{{month}}" maxlength='4'/>
+    <input class="textarea-wrp" bindblur="getDate"  type="number" placeholder="{{date}}" maxlength='4'/>
+  </view>
+
+  <view class="page-section-title">团体赛：</view>
+  <view>
+    <input class="textarea-wrp" bindblur="getGroupMatch"/>
+  </view>
+
+  <view class="page-section-title">比赛地点：</view>
+  <view class="textarea-wrp">
+      <input class="inputt" bindblur="getLoc"  type="text" placeholder="{{location}}" maxlength='20'/>
+  </view>
+
+  <view class="page-section-title">短介绍</view>
+  <view class="textarea-wrp2">
+      <textarea class="inputt" bindblur="getIntro"  type="text" value="{{intro}}" maxlength='90'/>
+  </view>
+
+  <view class="page-section-title">比赛详情</view>
+  <view class="textarea-wrp3">
+      <textarea class="inputt" bindblur="getInfo"  type="text" value="{{info}}" maxlength='-1' auto-height="true"/>
+  </view>
+
+  <view class="page-section-title">签位信息：</view>
+  <view class="textarea-wrp">
+      <input class="inputt" bindblur="getms"  type="number" placeholder="{{ms}}" maxlength='20'/>
+  </view>
+  <view class="textarea-wrp">
+      <input class="inputt" bindblur="getws"  type="number" placeholder="{{ws}}" maxlength='20'/>
+  </view>
+  <view class="textarea-wrp">
+      <input class="inputt" bindblur="getmd"  type="number" placeholder="{{md}}" maxlength='20'/>
+  </view>
+  <view class="textarea-wrp">
+      <input class="inputt" bindblur="getwd"  type="number" placeholder="{{wd}}" maxlength='20'/>
+  </view>
+  <view class="textarea-wrp">
+      <input class="inputt" bindblur="getd"  type="number" placeholder="{{doubles}}" maxlength='20'/>
+  </view>
+  <view class="textarea-wrp">
+      <input class="inputt" bindblur="getrrs"  type="number" placeholder="{{rr_s}}" maxlength='20'/>
+  </view>
+  <view class="textarea-wrp">
+      <input class="inputt" bindblur="getrrd"  type="number" placeholder="{{rr_s}}" maxlength='20'/>
+  </view>
+  <view class="textarea-wrp">
+      <input class="inputt" bindblur="getfrrs"  type="number" placeholder="{{rr_s_fwd}}" maxlength='20'/>
+  </view>
+  <view class="textarea-wrp">
+      <input class="inputt" bindblur="getfrrd"  type="number" placeholder="{{rr_d_fwd}}" maxlength='20'/>
+  </view>
+
+  <view class="weui-button">
+  <button type="primary" bindtap="submit">提交</button>
+  </view>
+
+</view>
+

@@ -1,0 +1,32 @@
+<view wx:if="{{permitgranted}}" class='container'>
+
+  <view class='tab-wrapper'>
+    <view id='tab2' class='tab-0 {{currentTab === 2 ? "tab-active" : ""}}' bindtap='switchTab'>{{content.tab_search}}</view>
+    <view id='tab1' class='tab-0 {{currentTab === 1 ? "tab-active" : ""}}' bindtap='switchTab'>{{content.tab_groupstandings}}</view>
+  </view>
+
+  <view class='content-wrapper' wx:if='{{currentTab === 2}}'>
+    <search language="{{language}}"/>
+  </view>
+  <view class='content-wrapper' wx:if='{{currentTab === 1}}'>
+    <groupstandings language="{{language}}"/>
+  </view>
+
+</view>
+
+<view wx:if="{{!permitgranted}}">
+  <view class='img-wrapper'>
+    <view class="img">
+      <image src="../../images/warning.png"  mode="aspectFit"/>
+    </view>
+  </view>
+  <view class='txt'>
+    <text>{{content.nomatchpermit1}}</text>
+  </view>
+  <view class='txt'>
+    <text>{{content.nomatchpermit2}}</text>
+  </view>
+  <view class='txt'>
+    <text>{{content.nomatchpermit3}}</text>
+  </view>
+</view>

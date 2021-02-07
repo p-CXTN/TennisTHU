@@ -1,0 +1,64 @@
+/* miniprogram/pages/modifyps/modifyps.wxss */
+textarea {
+  width: 700rpx;
+  padding: 25rpx 0;
+}
+
+.textarea-wrp {
+  padding: 0 25rpx;
+  background-color: #fff;
+  height: 72rpx;
+  font-size: 36rpx;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+  width: 697rpx;
+  border: 1px solid lightgray;
+}
+
+.page-section{
+  width: 100%;
+  margin-bottom: 60rpx;
+}
+
+.page-section:last-child{
+  margin-bottom: 0;
+}
+
+
+.input-row {
+  margin: 30rpx auto;
+  border-bottom: 1rpx solid #e5e5e5;
+  border-top: 1rpx solid #e5e5e5;
+  display: flex;
+  align-items: center;
+  height: 88rpx;
+  padding: 0 10rpx;
+  background-color: #fff;
+  font-size: 34rpx;
+  color: #000
+}
+.input-row .input-guide{
+  margin-right:30rpx;
+  width:24%;
+  text-align: right;
+  color: #7c7c7c;
+}
+
+.submitbuttonview{
+  margin-top: 20rpx;
+  margin-bottom: 50rpx;
+  width:100%;
+}
+
+.submitbutton{
+  width: 80%;
+  font-weight: bolder;
+  height: 90rpx;
+  line-height: 80rpx;
+  margin-top: 10rpx;
+  color: #ffffff;
+  background-color:#8537A1;
+  border: 0.1rpx solid #ccc;
+  border-radius: 45rpx;
+}

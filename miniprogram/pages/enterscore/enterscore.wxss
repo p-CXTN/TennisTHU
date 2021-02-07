@@ -1,0 +1,171 @@
+/* miniprogram/pages/enterscore/enterscore.wxss */
+.title{
+  margin-top: 20rpx;
+  margin-bottom: 30rpx;
+  margin-left: 10rpx;
+  font-size: medium;
+  font-weight: bold;
+}
+
+.row1{
+  margin-left: 5rpx;
+  margin-bottom: 20rpx;
+  margin-top: 10rpx;
+  width:49%;
+  float:left;
+  height: auto;
+  background-color: bisque;
+}
+
+.row2{
+  margin-left: 5rpx;
+  margin-bottom: 20rpx;
+  margin-top: 10rpx;
+  width:49%;
+  float:left;
+  height: auto;
+  background-color: #C0DCC0;
+}
+
+.depinputtitle{
+  margin-left: 10rpx;
+  margin-bottom: 10rpx;
+}
+
+.depinput{
+  height: 40rpx;
+  margin-left: 10rpx;
+  width:85%;
+  border:1px solid #000000;
+  margin-bottom: 30rpx;
+}
+.loginBtnView {
+  margin-top: 20rpx;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+ 
+.loginBtn {
+  width: 600rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  margin-top: 35rpx;
+  color: #fff;
+  background-color:#8537A1;
+  border: 0.1rpx solid #ccc;
+  border-radius: 40rpx;
+}
+.list_item{
+  height: 160rpx;
+  width: 100%;
+  margin-top: 1rpx;
+}
+.list_item .status{
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 15%;
+  float:left;
+}
+.list_item .info{
+  width: 70%;
+  height: 100%;
+  float:left;
+}
+.list_item .info .sepinfo{
+  height:50%;
+  width: 100%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+.list_item .info .sepinfo .names{
+  width: 70%;
+  float: left;
+  height :100%;
+  display: flex;
+  align-items: center;
+}
+
+.list_item .info .sepinfo .names .dep{
+  margin-left: 20rpx;
+  font-weight: bold;
+  font-size: 30rpx;
+  width: 30%;
+  float: left;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.list_item .info .sepinfo .names .player{
+  font-size: 32rpx;
+  width: 60%;
+  float: right;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.list_item .info .sepinfo .score{
+  width: 14%;
+  height: 80%;
+  float: left;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputt{
+  width: 100%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #000000;
+}
+.list_item .info .sepinfo .winner{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 14%;
+  height: 100%;
+  float: right;
+}
+
+.winnerimg{
+  width: 50%;
+  height: 50%;
+}
+.checkbox{
+  float:right;
+  width: 13%;
+}
+.cb{
+  width: 100%;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-row {
+  margin: 30rpx auto;
+  border-bottom: 5rpx solid #ffffff;
+  border-top: 5rpx solid #ffffff;
+  display: flex;
+  align-items: center;
+  height: 88rpx;
+  padding: 0 2rpx;
+  /*background-color: #fff;*/
+  font-size: 32rpx;
+  color: #000;
+}
+.input-row .input-guide{
+  margin-right:12rpx;
+  width:32%;
+  text-align: right;
+  font-size: small;
+  color: #353535;
+}

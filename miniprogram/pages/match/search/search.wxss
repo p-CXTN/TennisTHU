@@ -1,0 +1,226 @@
+/* pages/match/today/today.wxss */
+.lrbutton{
+  background-color: #ffffff;
+  width:15%;
+  height: 80rpx;
+  margin-top: 0px;
+  margin-left: 1px;
+  float:left;
+}
+.lrimg{
+  width:100%;
+  height:100%;
+  display: inherit;
+}
+.lrbtn{
+  display: inherit;
+  height:100%;
+}
+.section{
+  width: 69%;
+  float: left;
+}
+.picker{
+  height: 78rpx;
+  background-color: #fafafa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.down-border{
+  border-bottom: 1rpx solid #e0e0e0;
+}
+.up-border{
+  border-top: 1rpx solid #e0e0e0;
+}
+.img-wrapper{
+  margin-top: 400rpx;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 300rpx;
+  display: flex;
+}
+.img{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:100%;
+  width:250rpx;
+}
+.txt{
+  margin-top: 15px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.rev_title{
+  line-height: 27rpx;
+  margin-top:0;
+  padding:10px;
+  height: 30rpx;
+  background-color:#b869d5;
+  color:#FFFFFF;
+  border-bottom:1px solid #FFFFFF;
+  border-top: 1px solid #E8E8E8;
+  margin-top: 75rpx;
+}
+
+.list_item{
+  float: left;
+  height: 160rpx;
+  width: 100%;
+  margin-top: 0rpx;
+  border-bottom: 1px solid #969696;
+}
+.list_item .colorbar{
+  width: 5%;
+  height: 100%;
+  float:left;
+  margin: 0;
+}
+.list_item .colorbar .ms1{
+  background-color: #80beaf;
+  color: black;
+  width: 100%;
+  height: 100%;
+}
+.list_item .colorbar .ms2{
+  background-color: #b3ddd1;
+  color: black;
+  width: 100%;
+  height: 100%;
+}
+.list_item .colorbar .dou{
+  background-color: #d1dce2;
+  color: white;
+  width: 100%;
+  height: 100%;
+}
+.list_item .colorbar .ws{
+  background-color: #ee9c6c;
+  color: black;
+  width: 100%;
+  height: 100%;
+}
+.list_item .colorbar .md{
+  background-color: #f5b994;
+  color: white;
+  width: 100%;
+  height: 100%;
+}
+.list_item .status{
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 15%;
+  float:left;
+}
+.list_item .info{
+  width: 79%;
+  height: 100%;
+  float:right;
+}
+.list_item .info .sepinfo{
+  height:50%;
+  width: 100%;
+}
+.list_item .info .sepinfo .names{
+  width: 70%;
+  float: left;
+  height :100%;
+  display: flex;
+  align-items: center;
+}
+
+.list_item .info .sepinfo .boldforwinner{
+  font-weight: bold;
+  width: 70%;
+  float: left;
+  height :100%;
+  display: flex;
+  align-items: center;
+}
+
+.list_item .info .sepinfo .names .dep{
+  margin-left: 20rpx;
+  font-size: 30rpx;
+  width: 30%;
+  float: left;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.list_item .info .sepinfo .names .player{
+  font-size: 32rpx;
+  width: 60%;
+  float: right;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.list_item .info .sepinfo .boldforwinner .dep{
+  margin-left: 20rpx;
+  font-size: 30rpx;
+  width: 30%;
+  float: left;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8537A1;
+}
+
+.list_item .info .sepinfo .boldforwinner .player{
+  font-size: 32rpx;
+  width: 60%;
+  float: right;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.score{
+  width: 14%;
+  height: 100%;
+  float: left;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: center;
+}
+.winner{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 14%;
+  height: 100%;
+  float: right;
+}
+
+.winnerimg{
+  width: 50%;
+  height: 50%;
+}
+
+.legendtitle{
+  width:100%;
+  height: 80rpx;
+}
+
+.pg-heading{
+  width: 750rpx;
+  margin-top: 75rpx;
+  position: fixed;
+}
+
+.placeholder{
+  margin-top: 237rpx;
+  margin-left: 150rpx;
+}

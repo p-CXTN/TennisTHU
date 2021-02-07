@@ -1,0 +1,87 @@
+<!--pages/match/search/search.wxml-->
+<view class="pg-heading">
+	<picker mode="date" value="{{date}}" start="2021-01-01" end="2023-12-31" bindchange="bindDateChange">
+		<view class="picker up-border">
+			{{date}}
+		</view>
+	</picker>
+
+	<view class="lrbutton">
+		<button class="lrbtn" bindtap="toleft">
+			<image class="lrimg" src="../../../images/ToLeft.png" mode="aspectFit" />
+		</button>
+	</view>
+	<view class="section">
+		<picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+			<view class="picker up-border down-border">
+				{{content.courtpick}}{{multiArray[0][multiIndex[0]]}}{{multiArray[1][multiIndex[1]]}}
+			</view>
+		</picker>
+	</view>
+	<view class="lrbutton">
+		<button class="lrbtn" bindtap="toright">
+			<image class="lrimg" src="../../../images/ToRight.png" mode="aspectFit" />
+		</button>
+	</view>
+</view>
+
+<view wx:if="{{nomatch}}">
+	<view class="img-wrapper">
+		<view class='img'>
+			<image src="../../../images/nomatch.png" mode="aspectFit" />
+		</view>
+	</view>
+	<view class='txt'>
+		<text>{{content.nomatch}}</text>
+	</view>
+</view>
+
+<view wx:if="{{!nomatch}}">
+	<view class="placeholder"> </view>
+	<!--<view class="rev_title">{{multiArray[0][multiIndex[0]]}} {{multiArray[1][multiIndex[1]]}}</view>-->
+	<block wx:for='{{matchList[rev_t]}}' wx:key='num' wx:for-item="imatch">
+		<view class="list_item">
+			<view class="colorbar">
+				<view wx:if="{{imatch.subject===\"一单\"}}" class="ms1"></view>
+				<view wx:if="{{imatch.subject===\"二单\"}}" class="ms2"></view>
+				<view wx:if="{{imatch.subject===\"男双\"}}" class="dou"></view>
+				<view wx:if="{{imatch.subject===\"女单\"}}" class="ws"></view>
+				<view wx:if="{{imatch.subject===\"混双\"}}" class="md"></view>
+			</view>
+			<view class="status">
+				<view wx:if="{{imatch.status===\"Nor\"}}">{{imatch.hour}}:{{imatch.minu}}</view>
+				<view wx:if="{{!(imatch.status===\"Nor\")}}">{{imatch.status}}</view>
+			</view>
+			<view class="info">
+				<view class="sepinfo">
+					<view wx:if="{{imatch.winner==1}}" class="boldforwinner">
+						<view class="dep">{{imatch.dep1}}</view>
+						<view class="player">{{imatch.player1}}</view>
+					</view>
+					<view wx:if="{{imatch.winner!=1}}" class="names">
+						<view class="dep">{{imatch.dep1}}</view>
+						<view class="player">{{imatch.player1}}</view>
+					</view>
+					<view class="score">{{imatch.score1}}</view>
+					<view wx:if="{{imatch.winner==1}}" class="winner">
+						<image class="winnerimg" src="../../../images/winner.png" mode="aspectFit" />
+					</view>
+				</view>
+				<view class="sepinfo">
+					<view wx:if="{{imatch.winner==2}}" class="boldforwinner">
+						<view class="dep">{{imatch.dep2}}</view>
+						<view class="player">{{imatch.player2}}</view>
+					</view>
+					<view wx:if="{{imatch.winner!=2}}" class="names">
+						<view class="dep">{{imatch.dep2}}</view>
+						<view class="player">{{imatch.player2}}</view>
+					</view>
+					<view class="score">{{imatch.score2}}</view>
+					<view wx:if="{{imatch.winner==2}}" class="winner">
+						<image class="winnerimg" src="../../../images/winner.png" mode="aspectFit" />
+					</view>
+				</view>
+			</view>
+		</view>
+	</block>
+</view>

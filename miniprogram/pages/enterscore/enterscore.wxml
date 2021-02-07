@@ -1,0 +1,87 @@
+<!--miniprogram/pages/enterscore/enterscore.wxml-->
+<view class="title">
+  说明：先查找比赛，再录比分；
+</view>
+
+<view class="input-row">
+  <view class="input-guide">项目</view>
+  <picker style="margin-left:36rpx" range="{{subjectarray}}" bindchange='getsubject'>{{subjectarray[subjectindex]}}</picker>
+</view>
+
+<view class="row1">
+  <view class="input-row">
+  <view class="input-guide">院系1</view>
+    <input bindblur="binddep1"/>
+  </view>
+</view>
+
+<view class="row2">
+  <view class="input-row">
+  <view class="input-guide">院系2</view>
+    <input bindblur="binddep2"/>
+  </view>
+</view>
+
+<view class="loginBtnView">  
+  <button class="loginBtn" bindtap='search'>查找</button>  
+</view> 
+
+<view wx:if="{{searched}}">
+    <view class="list_item">
+      <view class="status">
+        <view wx:if="{{imatch.status===\"Nor\"}}">{{imatch.hour}}:{{imatch.minu}}</view>
+        <view wx:if="{{!(imatch.status===\"Nor\")}}">{{imatch.status}}</view>
+      </view>
+      <view class="info">
+        <view class="sepinfo">
+          <view class="names">
+            <view class="dep">{{imatch.dep1}}</view>
+            <view class="player">{{imatch.player1}}</view>
+          </view>
+          <view class="score">
+            <input class="intputt" placeholder="{{imatch.score1}}" bindblur="getscore1"/>
+          </view>
+        </view>
+        <view class="sepinfo">
+          <view class="names">
+            <view class="dep">{{imatch.dep2}}</view>
+            <view class="player">{{imatch.player2}}</view>
+          </view>
+          <view class="score">
+            <input class="intputt" placeholder="{{imatch.score2}}" bindblur="getscore2"/>
+          </view>
+        </view>
+      </view>
+      <view class="checkbox">
+        <checkbox-group bindchange="checkboxchange">
+          <view class="cb">
+            <checkbox value="1" checked='{{box1checked}}'/>
+          </view>
+          <view class="cb">
+            <checkbox value="2" checked='{{box2checked}}' />
+          </view>
+        </checkbox-group>
+      </view>
+    </view>
+  
+  <view class="input-row">
+    <view class="input-guide">更改比赛状态为</view>
+    <picker style="margin-left:36rpx" range="{{statusarray}}" bindchange='getstatus' >{{statusarray[statusindex]}}</picker>
+  </view>
+
+  
+  <view class="loginBtnView">  
+    <button class="loginBtn" bindtap='submit'>提交比分</button>  
+  </view> 
+
+  <view class="title">注：</view>
+  <view class="title">FT：Full time,比赛结束</view>
+  <view class="title">Nor：Normal,比赛按计划进行</view>
+  <view class="title">W.O.：Walkover,比赛未开始即退赛</view>
+  <view class="title">Ret.：Retired,比赛过程中对手退赛</view>
+  <view class="title">Def.：Defaulted,选手被取消参赛资格</view>
+  <view class="title">Del.：Delayed,比赛推迟</view>
+  <view class="title">Int.：Interrupted,比赛中断</view>
+  <view class="title">Can.：Cancelled,比赛取消</view>
+</view>
+

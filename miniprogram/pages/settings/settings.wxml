@@ -1,0 +1,22 @@
+<!--miniprogram/pages/settings/settings.wxml-->
+<view class="uploader">
+  <navigator url="../modifyps/modifyps" open-type="navigate" class="uploader-text">
+    <text>{{content.modifypi}}</text>
+  </navigator>
+</view>
+
+<view class="uploader">
+  <navigator url="../contactus/contactus" open-type="navigate" class="uploader-text">
+    <text>{{content.contactus}}</text>
+  </navigator>
+</view>
+
+<view class="uploader">
+  <navigator url="../resetPwd/resetPwd" open-type="navigate" class="uploader-text">
+    <text>{{content.changepwd}}</text>
+  </navigator>
+</view>
+
+<view class="btn">
+  <button type="warn" class="btnnn" bindtap="logout">{{content.logout}}</button>
+</view>

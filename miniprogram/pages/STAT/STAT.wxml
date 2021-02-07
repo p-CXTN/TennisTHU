@@ -1,0 +1,99 @@
+<!--miniprogram/pages/STAT/STAT.wxml-->
+<view class="container">
+	<view class="userinfo">
+		<button open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" class="userinfo-avatar" style="background-image: url({{avatarUrl}})" disabled="true"></button>
+	</view>
+
+	<view class="userinfo-nickname">
+		<text>{{realname}}</text>
+	</view>
+
+	<view wx:if="{{rflag}}" class="userinfo-rating">
+		<view class='txt'>
+			<text>{{content.notinthegroup}}</text>
+		</view>
+		<view class='txt'>
+			<text>{{content.notinthegroup2}}</text>
+		</view>
+		<view class="loginBtnView">
+			<button bindtap="joinnow" class="btn">{{content.jointhegroupbtn}}</button>
+			<button bindtap="knowmore" class="btn">{{content.knowmore}}</button>
+		</view>
+	</view>
+	<view wx:if="{{flag2}}" class="userinfo-rating">
+		<view class='txtnormal'>{{content.submitsuccess1}}</view>
+		<view class='txtbold'>{{content.submitsuccess2}}</view>
+		<view class='guidetexts'>
+			<view class="normaltext">{{content.submitsuccess3}}</view>
+		</view>
+	</view>
+
+  <view wx:if="{{flag}}" class="userinfo-rating">
+    <text>{{classdate==4?content.thursdaymember:content.saturdaymember}}</text>
+	</view>
+  <view wx:if="{{flag}}" class="userinfo-rating">
+    <text>{{content.remainingactionpoints}}{{actionpoints}}</text>
+	</view>
+</view>
+
+<!---
+<view wx:if="{{rflag}}">
+	<view class='imagee'>
+		<image src="../../images/VIP.png" mode="aspectFit" />
+	</view>
+	<view class='txt'>
+		<text>{{content.notinthegroup}}</text>
+	</view>
+	<view class='txt'>
+		<text>{{content.notinthegroup2}}</text>
+	</view>
+	<view class="loginBtnView">
+		<button bindtap="joinnow" class="btn">{{content.jointhegroupbtn}}</button>
+		<button bindtap="knowmore" class="btn">{{content.knowmore}}</button>
+	</view>
+</view>         
+
+<view wx:if="{{flag2}}">
+	<view class="img-wrapper">
+		<view class='img'>
+			<image src="../../images/submitsuccess.png" mode="aspectFit" />
+		</view>
+	</view>
+	<view class='txtnormal'>{{content.submitsuccess1}}</view>
+	<view class='txtbold'>{{content.submitsuccess2}}</view>
+	<view class='guidetexts'>
+		<view class="normaltext">{{content.submitsuccess3}}</view>
+	</view>
+</view>-->
+
+<view wx:if="{{flag}}">
+	<!--<view class="img-wrapper">
+    <view class='img'>
+      <image src="../../images/success.png"  mode="aspectFit"/>
+    </view>
+  </view>
+  <view class='txte'>
+    <text>{{content.success}}</text>
+  </view>           -->
+
+</view>
+
+
+
+
+<!--
+
+  <view class="container-box">
+    <view class="img-box">
+        <image mode="scaleToFill" src="{{imagePath}}"></image>
+      </view>
+  </view>
+  
+    <button type="primary" bindtap="tempbuttontap">button</button>
+    <button type="primary" bindtap="temp2buttontap">button</button>
+
+<view hidden="{{maskHidden}}" class="mask"></view>
+<view class="canvas-box">
+    <canvas style="width: 686rpx;height: 686rpx;background:#f1f1f1;" canvas-id="mycanvas" />
+</view>
+-->

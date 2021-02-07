@@ -1,0 +1,42 @@
+<view class='img-wrapper'>
+  <view class='img'>
+    <image src="../../images/logintitle.png"  mode="aspectFit"/>
+  </view>
+</view>
+
+<view class="container"> 
+  <view class="login-from">  
+  <form bindsubmit="formSubmit" class='form'>
+    <view class="myno">
+    <!-- 学号 -->
+      <view class="weui-cell weui-cell_input">
+      <image class="nameImage" src="/images/name.png"></image>
+          <view class="weui-cell__bd">
+              <input class="weui-input" type="number" name="no" bindblur="syncid" placeholder="{{content.inputid}}" />
+          </view>
+      </view>
+    </view>
+    <view class="mypwd">
+      <!-- 密码 -->
+      <view class="weui-cell weui-cell_input">
+      <image class="nameImage" src="/images/password.png"></image>
+          <view class="weui-cell__bd">
+              <input class="weui-input" type="password" name="pwd" bindblur="syncpwd" placeholder="{{content.inputpwd}}"/>
+          </view>
+      </view>
+    </view>
+ 
+     <!--按钮-->  
+    <view class="loginBtnView">  
+      <button class="loginBtn" bindtap='submit'>{{content.loginbtn}}</button>  
+    </view>  
+    <view class="loginBtnView">  
+      <button class="guiBtn" bindtap='getuserinfo'>{{content.registerbtn}}</button>  
+    </view>  
+    </form>
+    
+  </view>  
+</view>
+
+
+

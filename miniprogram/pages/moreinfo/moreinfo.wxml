@@ -1,0 +1,50 @@
+<!--miniprogram/pages/moreinfo/moreinfo.wxml-->
+<view class="ctner">
+  <view class="img">
+    <image src="../../images/matchinfo1.png"  mode="aspectFit"/>
+    <image src="../../images/matchinfo3.png"  mode="aspectFit"/>
+  </view>
+  <view class="title">
+    <text>{{matchinfo[0].title}}</text>
+  </view>
+  <view class="time">
+    <text>比赛时间： {{matchinfo[0].year}}.{{matchinfo[0].month}}.{{matchinfo[0].date}}</text>
+  </view>
+  <view class="time">
+    <text>比赛地点： {{matchinfo[0].location}}</text>
+  </view>
+  <view class="time2"></view>
+  <view class="moreinfo">详情：</view>
+  <view class="info">
+    <text>{{matchinfo[0].info}}</text>
+  </view>
+
+  <view class="draw" wx:if="{{matchinfo[0].draw_m!=0}}">
+    <text>男单签位：{{matchinfo[0].draw_m}}</text>
+  </view>
+  <view class="draw2" wx:if="{{matchinfo[0].draw_f!=0}}">
+    <text>女单签位：{{matchinfo[0].draw_f}}</text>
+  </view>
+  <view class="draw2" wx:if="{{matchinfo[0].draw_md!=0}}">
+    <text>男双签位：{{matchinfo[0].draw_md}}</text>
+  </view>
+  <view class="draw2" wx:if="{{matchinfo[0].draw_fd!=0}}">
+    <text>女双签位：{{matchinfo[0].draw_fd}}</text>
+  </view>
+  <view class="draw2" wx:if="{{matchinfo[0].draw_d!=0}}">
+    <text>双打(性别不限)签位：{{matchinfo[0].draw_d}}</text>
+  </view>
+
+  <view class="draw2"></view>
+
+  <view class="apply">
+    <button bindtap="bindapply" type="confirm" class="applybutton">{{content.signupnowbutton}}</button>
+  </view>
+</view>
+
+<view class="weui-footer">
+    <view class="weui-footer__links">
+    <navigator url="https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzA4NTAzMDQ4Mg==&scene=126&bizpsid=0#wechat_redirect" class="weui-footer__link">清华大学学生网球协会</navigator>
+    </view>
+    <view class="weui-footer__text">Copyright © 清华大学学生网球协会</view>
+  </view>

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "search": "./search/search",
+    "groupstandings": "./group/group"
+  }
+}

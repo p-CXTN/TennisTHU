@@ -1,0 +1,97 @@
+/**index.wxss**/
+.clear{
+  clear: both;
+  overflow: hidden;
+}
+page {
+  background: #f7f7f7;
+}
+button::after{
+    border: none;
+}
+
+.userinfo, .uploader, .tunnel {
+  margin-top: 40rpx;
+  height: 150rpx;
+  width: 180rpx;
+  background: #f7f7f7;
+  border: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;  
+  transition: all 300ms ease;
+}
+
+.userinfo-avatar {
+  width: 150rpx;
+  height: 150rpx;
+  margin: 0;
+  border: 4rpx solid;
+  border-radius: 100%;
+  border-color: #8537A1;
+  background-size: cover;
+  background-color: #ffffff;
+}
+
+.userinfo-avatar:after {
+  border: none;
+}
+
+.userinfo-nickname {
+  font-size: 48rpx;
+  font-weight: bold;
+  background-size: cover;
+}
+
+.userinfo-nickname::after {
+  border: none;
+}
+
+.userinfo-rating {
+  color: #888;
+}
+
+.userinfo-info {
+  font-size: 36rpx;
+}
+
+navigator{
+  display:inline;
+}
+.list{
+  margin-top:20rpx;
+}
+ 
+.list .list_item{
+  margin: 30rpx auto;
+  padding:20rpx;
+  height:100rpx;
+  background-color: #fcfcfc;
+  border-bottom:1px solid #E8E8E8;
+  border-top: 1px solid #E8E8E8;
+}
+.list .list_item .img{
+  margin-top: 14rpx;
+  float:left;
+  width:27%;
+  height:100%;
+}
+.list .list_item .img image{
+  margin-left: 150rpx;
+  width:50%;
+  height:70%;
+}
+ 
+.list .list_item .info{
+  width:50%;
+  float:right;
+  height:100rpx;
+  position:relative;
+}
+.list .list_item .info .title{
+  color:#333;
+  float:center;
+  margin-top: 24rpx;
+  font-size: 36rpx;
+}

@@ -1,0 +1,77 @@
+<!--miniprogram/pages/draw/draw.wxml-->
+<view class="title">
+  <view class="titletext">
+    说明：院系名称请填简称（2个字或3个字）；选手姓名尽量填中文，双打选手用'/'隔开；对阵表需在两队第一场比赛开始前10分钟提交，提交后不得修改
+  </view>
+</view>
+<view class="row1">
+  <view class="depinputtitle">院系1</view>
+
+  <view class="input-row">
+    <view class="input-guide">名称</view>
+    <input bindblur="binddep1"/>
+  </view>
+
+  <view class="input-row">
+    <view class="input-guide">男一单</view>
+    <input bindblur="bindms11"/>
+  </view>
+
+  <view class="input-row">
+    <view class="input-guide">男二单</view>
+    <input bindblur="bindms21"/>
+  </view>
+
+  <view class="input-row">
+    <view class="input-guide">女单</view>
+    <input bindblur="bindws1"/>
+  </view>
+
+  <view class="input-row">
+    <view class="input-guide">男双</view>
+    <input bindblur="bindd1"/>
+  </view>
+
+  <view class="input-row">
+    <view class="input-guide">混双</view>
+    <input bindblur="bindmd1"/>
+  </view>
+</view>
+
+<view class="row2">
+    <view class="depinputtitle">院系2</view>
+
+  <view class="input-row">
+    <view class="input-guide">名称</view>
+    <input bindblur="binddep2"/>
+  </view>
+
+  <view class="input-row">
+    <view class="input-guide">男一单</view>
+    <input bindblur="bindms12"/>
+  </view>
+
+  <view class="input-row">
+    <view class="input-guide">男二单</view>
+    <input bindblur="bindms22"/>
+  </view>
+
+  <view class="input-row">
+    <view class="input-guide">女单</view>
+    <input bindblur="bindws2"/>
+  </view>
+
+  <view class="input-row">
+    <view class="input-guide">男双</view>
+    <input bindblur="bindd2"/>
+  </view>
+
+  <view class="input-row">
+    <view class="input-guide">混双</view>
+    <input bindblur="bindmd2"/>
+  </view>
+</view>
+
+<view class="submitbuttonview">  
+  <button class="submitbutton" bindtap='submit' disabled="{{!enable}}">确认无误，提交</button>  
+</view> 

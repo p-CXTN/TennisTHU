@@ -1,0 +1,81 @@
+<!--miniprogram/pages/manage/manage.wxml-->
+<view wx:if="{{flag}}">
+  <view class="container">
+    <view class="userinfo">
+      <button 
+        open-type="getUserInfo" 
+        bindgetuserinfo="onGetUserInfo"
+        class="userinfo-avatar"
+        style="background-image: url({{avatarUrl}})"
+        disabled="true"
+      ></button>
+    </view> 
+
+    <view class="userinfo-nickname">
+      <text>{{realname}}</text>
+    </view>
+    <view class="userinfo-rating">
+      <text>权限：{{permit}}级</text>
+    </view>
+  </view>
+  <view class='list'>
+    <view class="list_item">
+        <navigator url="../newmatch/newmatch">
+        <view class='img'>
+          <image src="../../images/newmatch.png"  mode="aspectFit"/>
+        </view>
+        <view class='info'>
+          <view class='title'>{{content.newmatch}}</view>
+        </view>
+        </navigator>
+        <view class='clear'></view>
+    </view>
+
+    <view class="list_item">
+        <navigator url="../draw/draw">
+        <view class='img'>
+          <image src="../../images/draw.png"  mode="aspectFit"/>
+        </view>
+        <view class='info'>
+          <view class='title'>{{content.updatedraw}}</view>
+        </view>
+        </navigator>
+        <view class='clear'></view>
+    </view>
+
+    <view class="list_item">
+      <navigator url="../enterscore/enterscore">
+        <view class='img'>
+          <image src="../../images/enterscore2.png"  mode="aspectFit"/>
+        </view>
+        <view class='info'>
+          <view class='title'>{{content.enterscore}}</view>
+        </view>
+      </navigator>
+      <view class='clear'></view>
+    </view>
+
+    <view class="list_item">
+        <navigator url="../manageusers/manageusers">
+        <view class='img'>
+          <image src="../../images/manageusers.png"  mode="aspectFit"/>
+        </view>
+        <view class='info'>
+          <view class='title'>{{content.manageusers}}</view>
+        </view>
+        </navigator>
+        <view class='clear'></view>
+    </view>
+  </view>
+</view>
+
+<view wx:if="{{rflag}}">
+  <view class='img-wrapper'>
+    <view class="img">
+      <image src="../../images/warning.png"  mode="aspectFit"/>
+    </view>
+  </view>
+  <view class='txt'>
+    <text>{{content.nopermitformanage}}</text>
+  </view>
+</view>

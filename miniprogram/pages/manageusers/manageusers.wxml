@@ -1,0 +1,76 @@
+<!--miniprogram/pages/manageusers/manageusers.wxml-->
+<view wx:if="{{rflag}}">
+  <view class='imagee'>
+    <image src="../../images/warning.png"  mode="aspectFit"/>
+  </view>
+  <view class='txt'>
+    <text>{{content.nopermitformanageusers}}</text>
+  </view>
+</view>
+
+<view wx:if="{{flag}}">
+  <view  class="infotext">
+    <view class="halftext">
+      <text>周四班剩余{{thurs_left}}名额</text>
+    </view>
+    <view class="halftext">
+      <text>周六班剩余{{sat_left}}名额</text>
+    </view>
+  </view>
+
+  <view  class="infotext">
+    <view class="halftext">
+      <text>等候列表中{{waitlistlength}}人</text>
+    </view>
+    <view class="halftext">
+      <text>暂拒列表中{{passedlistlength}}人</text>
+    </view>
+  </view>
+
+  <view class="infotext2">
+    <view wx:if="{{openforreg}}" class='greentxt'>
+      已开放报名
+    </view>
+    <view wx:if="{{!openforreg}}" class='redtxt'>
+      报名已关闭
+    </view>
+  </view>
+  <view wx:if="{{permit>=5}}">
+    <view class="infotext">
+      <button class="controlbuttong" bindtap="openreg">开放报名</button>
+      <button class="controlbuttonr" bindtap="closereg">关闭报名</button>
+    </view>
+  </view>
+  <view class="etcontainer">
+    <button type="default" class="controlbutton2" bindtap="refreshpassed">查看暂拒列表</button>
+  </view>
+  <view class="etcontainer">
+    <button type="default" class="controlbutton2" bindtap="refresh">刷新等候列表</button>
+  </view>
+  
+  <block wx:for='{{dataList}}' wx:key='list' wx:for-item="item">
+  <view class="list_item">
+    <view class='info1'>
+      <view class='title'>{{item.realname}}</view>
+    </view>
+    <view class='info'>
+      <view class='description'>{{item.gender}}，周{{item.classdate==4?"四":"六"}}{{item.rating=='A'?"初级班":item.rating=='B'?"中级班":item.rating=='C'?"高级班":"老手"}}</view>
+      <view class='description'></view>
+    </view>
+    <view class='info'>
+      <view class='description'>电话：{{item.phone}}</view>
+      <view class='description'>学号：{{item.stuid}}</view>
+    </view>
+    <view class='info'>
+      <view class='description'>微信：{{item.nickname}}</view>
+      <view class='description'>{{item.wechat}}</view>
+    </view>
+  </view>
+  <view class="buttonctn">
+    <button class="btnn" type="warn" bindtap="bindpass" id="{{item._id}}" disabled="{{item.passed}}">暂拒</button>
+    <button class="btnn" type="primary" bindtap="bindapprove" id="{{item._id}}">通过申请</button>
+  </view>
+    
+</block>
+
+</view>

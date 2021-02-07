@@ -1,0 +1,49 @@
+/* miniprogram/pages/newmatch/newmatch.wxss */
+.page-section{
+  width: 100%;
+  margin-bottom: 60rpx;
+}
+
+.page-section-title{
+  font-size: 28rpx;
+  color: #999999;
+  margin-bottom: 10rpx;
+  margin-left: 30rpx;
+  height: 30px;
+  margin-top: 3px;
+  
+  display: flex;
+  align-items: center;
+}
+.textarea-wrp {
+  padding: 0 25rpx;
+  background-color: #fff;
+  height: 72rpx;
+  font-size: 36rpx;
+  display: flex;
+  align-items: center;
+  margin-bottom: 30rpx;
+  width: 697rpx;
+  border: 1px solid lightgray;
+}
+
+.inputt{
+  width: 700rpx;
+}
+.textarea-wrp2 {
+  padding: 0 25rpx;
+  background-color: #fff;
+  height: 216rpx;
+  font-size: 36rpx;
+  margin-bottom: 30rpx;
+  width: 100%;
+  border: 1px solid lightgray;
+}
+.textarea-wrp3 {
+  padding: 0 25rpx;
+  background-color: #fff;
+  font-size: 36rpx;
+  margin-bottom: 30rpx;
+  width: 100%;
+  border: 1px solid lightgray;
+}

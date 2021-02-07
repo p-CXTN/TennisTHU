@@ -1,0 +1,101 @@
+<!--miniprogram/pages/joinSTAT/joinSTAT.wxml-->
+<view wx:if="{{rflag&&rflag2}}">
+  <view class="img-wrapper">
+    <view class='img'>
+      <image src="../../images/notopen.png"  mode="aspectFit"/>
+    </view>
+  </view>
+  <view class='txt'>
+    <text>{{content.notopen}}</text>
+  </view>
+</view>
+
+<view wx:if="{{flag&&rflag2}}">
+  <view class="guidetexts">
+    <view class="normaltext">{{content.joinnote}}</view>
+  </view>
+  <view class="ctner">
+    <view class="oldinfo">
+      <view class="oldinfotxt">{{content.info_realname}}{{realname}}</view>
+      <view class="oldinfotxt">{{content.info_gender}}{{gender}}</view>
+      <view class="oldinfotxt">{{content.info_stuid}}{{stuid}}</view>
+      <view class="oldinfotxt">{{content.info_phone}}{{phone}}</view>
+      <view class="oldinfotxt">{{content.info_department}}{{department}}</view>
+      <view class="oldinfotxt">{{content.info_grade}}{{grade}}</view>
+    </view>
+  </view>
+  <view class="guidetexts">
+    <view class="normaltext">{{content.endnote1}}</view>
+  </view>
+  <view class="guidetexts">
+    <view class="normaltext">{{content.endnote2}}</view>
+  </view>
+  
+  <view class="input-row">
+    <view class="input-guide">{{content.info_wechatid}}</view>
+    <input class="inputt" bindblur="getwechatid" maxlength='40'/>
+  </view>
+
+  <view class="input-row">
+    <view class="input-guide">{{content.info_email}}</view>
+    <input class="inputt" bindblur="getemail" placeholder="{{content.ph_email}}" maxlength='40'/>
+  </view>
+  
+  <view class="input-row">
+    <view class="input-guide">{{content.info_classdate}}</view>
+    <picker range="{{classarray}}" bindchange='getclassdate'>{{classarray[classindex]}}</picker>
+  </view>
+  <view class="warningsection" wx:if="{{thursfull}}">{{content.thursfull}}</view>
+  <view class="warningsection" wx:if="{{satfull}}">{{content.satfull}}</view>
+
+  <view class="input-row">
+    <view class="input-guide">{{content.info_rating}}</view>
+    <picker range="{{ratingarray}}" bindchange='getRating'>{{ratingarray[ratingindex]}}</picker>
+  </view>
+
+  <view class="guidetexts">
+    <view class="normaltext">{{content.levelestimate}}</view>
+  </view>
+  <view class="ctner">
+    <view class="oldinfo2">
+      <view>{{content.levelbeginner}}</view>
+      <view>{{content.levelintermediate}}</view>
+      <view>{{content.leveladvanced}}</view>
+      <view>{{content.levelveteran}}</view>
+    </view>
+  </view>
+
+  <view wx:if="{{lanflag}}" class="guidetexts">
+    <view class="normaltext">{{content.officerintro}}</view>
+  </view>
+  <view wx:if="{{lanflag}}" class="input-row">
+    <view class="input-guide">{{content.becomeofficer}}</view>
+      <picker range="{{officerarray}}" bindchange='getofficer'>{{officerarray[officerindex]}}</picker>
+  </view>
+
+  <view class="guidetexts">
+    <view class="normaltext">{{content.beforesubmit}}</view>
+  </view>
+  <view class="submitbuttonview">
+    <button class="submitbutton" bindtap="submit">{{content.submitinfo}}</button>
+  </view>
+</view>
+
+<view wx:if="{{flag2}}">
+  <view  class="img-wrapper">
+    <view class='img'>
+      <image src="../../images/submitsuccess.png"  mode="aspectFit"/>
+    </view>
+  </view>
+  <view class='txtnormal'>{{content.submitsuccess1}}</view>
+  <view class='txtbold'>{{content.submitsuccess2}}</view>
+  <view class='guidetexts'>
+    <view class="normaltext">{{content.submitsuccess3}}</view>
+  </view>
+</view>
+
+<view wx:if="{{flag&&rflag2}}">
+  <view class="weui-footer">
+    <view class="weui-footer__text">Copyright © {{content.association}}</view>
+  </view>
+</view>

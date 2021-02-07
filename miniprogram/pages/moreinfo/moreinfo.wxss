@@ -1,0 +1,60 @@
+/* miniprogram/pages/moreinfo/moreinfo.wxss */
+
+.img{
+  margin-top: 0px;
+  height: 350rpx;
+  display: flex;
+  justify-content: center;  
+  align-items: center;
+}
+
+.title{
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+  font-size: 50rpx;
+  font-weight: bold;
+}
+
+.time{
+  margin-left: 30rpx;
+  color: #000000c5;
+}
+
+.time2{
+  color: #000000c5;
+  font-size: 10px;
+  border-bottom:1px solid rgb(88, 88, 88);
+}
+
+.moreinfo{
+  display:flex;
+  justify-content: left;
+  margin-left:20rpx;
+  margin-top: 50rpx;
+}
+
+.info{
+  margin-left: 20rpx;
+  margin-right: 15rpx;
+  display: flex;
+  justify-content: center;
+}
+.draw{
+  margin-top: 50rpx;
+  margin-left: 20rpx;
+}
+.draw2{
+  margin-left: 20rpx;
+}
+.apply{
+  margin-top: 50rpx;
+  margin-bottom: 30rpx;
+  display: flex;
+  justify-content: center;
+}
+.applybutton{
+  width:90%;
+  color: #8537A1;
+  background-color:#F8F8F8;
+  border: 0.1rpx solid #8537A1;
+}

@@ -1,0 +1,120 @@
+/* miniprogram/pages/getUserInfo/getUserInfo.wxss */
+textarea {
+  width: 700rpx;
+  padding: 25rpx 0;
+}
+
+.textarea-wrp {
+  padding: 0 25rpx;
+  background-color: #fff;
+  height: 72rpx;
+  font-size: 36rpx;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+  width: 697rpx;
+  border: 1px solid lightgray;
+}
+
+.page-section{
+  width: 100%;
+  margin-bottom: 60rpx;
+}
+
+.page-section:last-child{
+  margin-bottom: 0;
+}
+
+.page-section-title{
+  font-size: 28rpx;
+  color: #999999;
+  margin-bottom: 10rpx;
+  padding-left: 30rpx;
+  height: 30px;
+  margin-top: 3px;
+  
+  display: flex;
+  align-items: center;
+}
+
+.pickerclass{
+  padding: 0 25rpx;
+  background-color: #fff;
+  height: 72rpx;
+  font-size: 36rpx;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+  width: 697rpx;
+}
+.inputt{
+  width: 600rpx;
+}
+
+.warning{
+  width: 100%;
+  float: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10rpx;
+  border: 1px solid black;
+}
+
+.warningtxt{
+  height:100%;
+  width:90%;
+  color:rgba(163, 0, 0, 0.652);
+}
+
+.guidetexts{
+  margin-top: 1rpx;
+  margin-bottom: 1rpx;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.guidetexts .hinttext{
+  width:90%;
+  font-size: smaller;
+  color: #aaaaaa;
+}
+
+.input-row {
+  margin: 30rpx auto;
+  border-bottom: 1rpx solid #e5e5e5;
+  border-top: 1rpx solid #e5e5e5;
+  display: flex;
+  align-items: center;
+  height: 88rpx;
+  padding: 0 2rpx;
+  background-color: #fff;
+  font-size: 34rpx;
+  color: #000
+}
+.input-row .input-guide{
+  margin-right:30rpx;
+  width:28%;
+  text-align: right;
+  color: #353535;
+}
+
+.submitbuttonview{
+  margin-top: 20rpx;
+  margin-bottom: 50rpx;
+  width:100%;
+}
+
+.submitbutton{
+  width: 80%;
+  font-weight: bolder;
+  height: 90rpx;
+  line-height: 80rpx;
+  margin-top: 10rpx;
+  color: #ffffff;
+  background-color:#8537A1;
+  border: 0.1rpx solid #ccc;
+  border-radius: 45rpx;
+}

@@ -1,0 +1,23 @@
+/* miniprogram/pages/contactus/contactus.wxss */
+.img{
+  margin-top: 15px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.txt{
+  margin-top: 15px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+.contact{
+  margin-top:20rpx;
+  display: flex;
+  justify-content: center;
+  font-size: 18px;
+}

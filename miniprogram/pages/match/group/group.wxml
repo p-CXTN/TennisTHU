@@ -1,0 +1,68 @@
+<!--pages/match/group/group.wxml-->
+<view class="pg-heading">
+  <view class="lrbutton">
+    <button class="lrbtn" bindtap="toleft">
+      <image class="lrimg" src="../../../images/ToLeft.png"  mode="aspectFit"/>
+    </button>
+  </view>
+
+  <view class="section">
+    <picker mode="selector" bindchange="bindPickerChange" value="{{groupIndex}}" range="{{groupList}}">
+      <view class="picker up-border down-border">
+          Group  {{groupList[groupIndex]}}
+      </view>
+    </picker>
+  </view>
+
+  <view class="lrbutton">
+    <button class="lrbtn" bindtap="toright">
+      <image class="lrimg" src="../../../images/ToRight.png"  mode="aspectFit"/>
+    </button>
+  </view>
+</view>
+
+<view class="quademo">
+  <view class="quacolordemo">
+    <view class="quacolor"/>
+  </view>
+  <view class="quatext">Currently in qualified position</view>
+</view>
+
+<view class="demo">
+  <view class="nqua"/>
+  <view class="pos">Pos.</view>
+  <view class="dep">Dep.</view>
+  <view class="tiewldemo">TieW/L</view>
+  <view class="matchwldemo">MatchW/L</view>
+  <view class="gamewldemo">GameW/L</view>
+</view>
+
+<block wx:for='{{depList[groupIndex]}}' wx:key='num' wx:for-item="idep">
+  <view class="list_item">
+    <view wx:if="{{idep.qua===\"true\"}}" class="qua"/>
+    <view wx:if="{{idep.qua===\"false\"}}" class="nqua"/>
+    <view class="pos">{{idep.pos}}</view>
+    <view class="dep">{{idep.dep}}</view>
+    <view class="tiewl">{{idep.tiew}}-{{idep.tiel}}</view>
+    <view class="matchwl">{{idep.matchw}}-{{idep.matchl}}</view>
+    <view class="gamewl">{{idep.gamew}}-{{idep.gamel}}</view>
+  </view>
+</block>
+
+<!--
+<view wx:if="{{permitgranted}}">
+  <view class='controlbutton'>
+    <button class="hiddenbutton" type="primary" plain="true" bindtap="geth2hresults">1.计算对决结果数组</button>
+  </view>
+  <view class='controlbutton'>
+    <button class="hiddenbutton" type="primary" plain="true" bindtap="calmatchgamewl">2.计算比赛/局胜负数组</button>
+  </view>
+  <view class='controlbutton'>
+    <button class="hiddenbutton" type="primary" plain="true" bindtap="refreshtiedata">3.更新对决胜负数据</button>
+  </view>
+  <view class='controlbutton'>
+    <button class="hiddenbutton" type="primary" plain="true" bindtap="ingroupsort">4.组内排序</button>
+  </view>
+</view>
+
+---->

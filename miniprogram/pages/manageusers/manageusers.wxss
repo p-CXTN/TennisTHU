@@ -1,0 +1,138 @@
+/* miniprogram/pages/manageusers/manageusers.wxss */
+navigator{
+  display:inline;
+}
+ 
+.list_item{
+  margin-top:0;
+  height: 274rpx;
+  margin-left: 20rpx;
+  border-bottom:1px solid #E8E8E8;
+  border-top: 1px solid #E8E8E8;
+}
+ 
+.list_item .info{
+  width:100%;
+  float:left;
+  height:30px;
+  position:relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.list_item .info1 .title{
+  color:#333;
+  margin-left:10rpx;
+  margin-top: 10rpx;
+  font-size: 40rpx;
+}
+.list_item .info .description{
+  width:50%;
+  color:rgba(51, 51, 51, 0.74);
+  margin-left:10rpx;
+  margin-top: 20rpx;
+  font-size: 30rpx;
+}
+.list_item .info .date{
+  float: left;
+  color:rgba(51, 51, 51, 0.466);
+  margin-left:10rpx;
+  margin-top: 170rpx;
+  font-size: 26rpx;
+}
+.imagee{
+  margin-top: 15px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.txt{
+  margin-top: 30rpx;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.buttonctn{
+  width:100%;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btnn{
+  width: 40%;
+  height:88%;
+  color: green;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  float: left;
+}
+.infotext{
+  margin-top:20rpx;
+  width:100%;
+  height:60rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.infotext2{
+  margin-top:20rpx;
+  font-weight: bold;
+  width:100%;
+  height:60rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.halftext{
+  width:50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.controlbuttong{
+  height:90%;
+  width:46%;
+  border:1px solid green;
+  color: green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.controlbuttonr{
+  height:90%;
+  width:46%;
+  border:1px solid red;
+  color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.controlbutton2{
+  height:90%;
+  width:68%;
+  border:1px solid black;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.etcontainer{
+  margin-top: 16rpx;
+  height:68rpx;
+  width:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.greentxt{
+  color:green;
+  font-size: larger;
+}
+.redtxt{
+  color:red;
+  font-size: larger;
+}

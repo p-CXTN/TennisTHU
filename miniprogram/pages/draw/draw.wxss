@@ -1,0 +1,78 @@
+/* miniprogram/pages/draw/draw.wxss */
+.title{
+  margin-top: 20rpx;
+  margin-bottom: 30rpx;
+  margin-left: 10rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title .titletext{
+  font-weight: bold;
+  width: 90%;
+}
+
+.row1{
+  margin-left: 5rpx;
+  margin-bottom: 8rpx;
+  width:49%;
+  float:left;
+  height: auto;
+  background-color: bisque;
+}
+
+.row2{
+  margin-left: 5rpx;
+  margin-bottom: 8rpx;
+  width:49%;
+  float:right;
+  height: auto;
+  background-color: #C0DCC0;
+}
+
+.depinputtitle{
+  margin-bottom: 10rpx;
+  margin-top: 10rpx;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+}
+
+.input-row {
+  margin: 30rpx auto;
+  border-bottom: 5rpx solid #ffffff;
+  border-top: 5rpx solid #ffffff;
+  display: flex;
+  align-items: center;
+  height: 88rpx;
+  padding: 0 2rpx;
+  /*background-color: #fff;*/
+  font-size: 32rpx;
+  color: #000;
+}
+.input-row .input-guide{
+  margin-right:12rpx;
+  width:32%;
+  text-align: right;
+  font-size: small;
+  color: #353535;
+}
+
+.submitbuttonview{
+  margin-top: 80rpx;
+  margin-bottom: 50rpx;
+  width:100%;
+}
+
+.submitbutton{
+  width: 80%;
+  font-weight: bolder;
+  height: 90rpx;
+  line-height: 80rpx;
+  margin-top: 40rpx;
+  color: #ffffff;
+  background-color:#8537A1;
+  border: 0.1rpx solid #ccc;
+  border-radius: 45rpx;
+}

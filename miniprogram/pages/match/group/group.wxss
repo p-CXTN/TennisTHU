@@ -1,0 +1,142 @@
+@import "../search/search.wxss";
+.demo{
+  float: left;
+  height: 60rpx;
+  width: 100%;
+  margin-top: 1rpx;
+  border-bottom: 3px solid #000000;
+}
+.listitemgroup{
+  float: left;
+  height: 100rpx;
+  width: 100%;
+  margin-top: 1rpx;
+  border-bottom: 1px solid #000000;
+}
+.qua{
+  background-color: greenyellow;
+  width: 2%;
+  height: 100%;
+  float: left;
+}
+.nqua{
+  width: 2%;
+  height: 100%;
+  float: left;
+}
+.pos{
+  width:10%;
+  height: 100%;
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dep{
+  font-size: 40rpx;
+  font-weight: bold;
+  width:30%;
+  height: 100%;
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tiewl{
+  font-size: 40rpx;
+  width:17%;
+  height: 100%;
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.matchwl{
+  width:20%;
+  height: 100%;
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.gamewl{
+  width:19%;
+  height: 100%;
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tiewldemo{
+  font-size: small;
+  font-weight: bold;
+  width:17%;
+  height: 100%;
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.matchwldemo{
+  font-size: small;
+  font-weight: bold;
+  width:20%;
+  height: 100%;
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.gamewldemo{
+  font-size: small;
+  font-weight: bold;
+  width:19%;
+  height: 100%;
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.quademo{
+  float: left;
+  height: 60rpx;
+  width: 100%;
+  margin-top: 150rpx;
+  margin-bottom: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.quacolordemo{
+  float:left;
+  width:20%;
+  height:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.quacolor{
+  background-color: greenyellow;
+  width: 18%;
+  height:50%;
+}
+.quatext{
+  width:79%;
+  float: right;
+  height:100%;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+.controlbutton{
+  margin-top: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.hiddenbutton{
+  margin-top: 20rpx;
+  width: 80%;
+}

@@ -1,0 +1,60 @@
+<!--miniprogram/pages/getUserInfo/getUserInfo.wxml-->
+<view wx:if="{{logged}}">
+  <view class="page-body">
+    <view class="page-section">
+      <view class="input-row">
+        <view class="input-guide">{{content.gui_realname}}</view>
+        <input class="inputtt" bindblur="getRealName"  type="text" value="{{realname}}" auto-focus='true' disabled='true'/>
+      </view>
+
+      <view class="input-row">
+        <view class="input-guide">{{content.gui_stuid}}</view>
+        <input class="inputtt" bindblur="getstuid"  type="number" value="{{stuid}}" maxlength='40' disabled='true'/>
+      </view>
+
+      <view class="input-row">
+        <view class="input-guide">{{content.gui_gender}}</view>
+        <picker range="{{genderarray}}" bindchange='getGender' >{{genderarray[genderindex]}}</picker>
+      </view>
+
+      <view class="input-row">
+        <view class="input-guide">{{content.gui_ntrp}}</view>
+        <picker range="{{ratingarray}}" bindchange='getRating' >{{ratingarray[ratingindex]}}</picker>
+      </view>
+
+      <view class="input-row">
+        <view class="input-guide">{{content.gui_school}}</view>
+        <input class="inputt" bindblur="getSchool" type="text" maxlength='20' value="{{school}}"/>
+      </view>
+
+      <view class="input-row">
+        <view class="input-guide">{{content.gui_department}}</view>
+        <input class="inputt" bindblur="getDepartment" type="text" maxlength='20' value="{{department}}"/>
+      </view>
+
+      <view class="input-row">
+        <view class="input-guide">{{content.gui_grade}}</view>
+        <input class="inputt" bindblur="getGrade"  type="text" maxlength='20' value="{{grade}}"/>
+      </view>
+
+      <view class="input-row">
+        <view class="input-guide">{{content.gui_phone}}</view>
+        <input class="inputt" bindblur="getPhone"  type="number" maxlength='20' value="{{phone}}"/>
+      </view>
+
+      <view class="input-row">
+        <view class="input-guide">{{content.gui_phand}}</view>
+        <picker range="{{phandarray}}" bindchange='getPhand' >{{phandarray[phandindex]}}</picker>
+      </view>
+
+      <view class="input-row">
+        <view class="input-guide">{{content.gui_bhand}}</view>
+        <picker range="{{bhandarray}}" bindchange='getBhand' >{{bhandarray[bhandindex]}}</picker>
+      </view>
+
+    </view>
+    <view class="submitbuttonview">
+      <button class="submitbutton" bindtap="submit">{{content.submitinfo}}</button>
+    </view>
+  </view>
+</view>
