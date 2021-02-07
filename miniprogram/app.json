@@ -1,0 +1,31 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/newmatch/newmatch",
+    "pages/manage/manage",
+    "pages/signup/signup",
+    "pages/getUserInfo/getUserInfo",
+    "pages/settings/settings",
+    "pages/login/login",
+    "pages/moreinfo/moreinfo",
+    "pages/apply/apply",
+    "pages/enterscore/enterscore",
+    "pages/STAT/STAT",
+    "pages/manageusers/manageusers",
+    "pages/joinSTAT/joinSTAT",
+    "pages/STATinfo/STATinfo",
+    "pages/contactus/contactus",
+    "pages/modifyps/modifyps",
+    "pages/match/match",
+    "pages/draw/draw",
+    "pages/resetPwd/resetPwd"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#8537A1",
+    "navigationBarTitleText": "清华大学学生网球协会",
+    "navigationBarTextStyle": "white"
+  },
+  "sitemapLocation": "sitemap.json"
+}
