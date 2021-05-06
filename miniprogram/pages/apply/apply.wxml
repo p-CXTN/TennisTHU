@@ -1,7 +1,52 @@
 <!--miniprogram/pages/apply/apply.wxml-->
-<view class='img'>
-  <image src="../../images/UnderConstruction.png"  mode="aspectFit"/>
+<view class="container">
+  <view class="userinfo">
+    <button open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" class="userinfo-avatar"
+      style="background-image: url({{avatarUrl}})" disabled="true"></button>
+  </view>
+
+  <view class="userinfo-nickname">
+    <text>{{realname}}</text>
+  </view>
 </view>
-<view class='txt'>
-  <text>{{content.underconstruction}}</text>
+
+<view class="guidetexts">
+  <view class="normaltext">{{content.currentmatch}}{{imatch.name}}</view>
+</view>
+<view class="guidetexts">
+  <view class="normaltext">{{content.joinnote}}</view>
+</view>
+<view class="ctner">
+  <view class="oldinfo">
+    <view class="oldinfotxt">{{content.info_realname}}{{realname}}</view>
+    <view class="oldinfotxt">{{content.info_gender}}{{gender}}</view>
+    <view class="oldinfotxt">{{content.info_stuid}}{{stuid}}</view>
+    <view class="oldinfotxt">{{content.info_phone}}{{phone}}</view>
+    <view class="oldinfotxt">{{content.info_department}}{{department}}</view>
+    <view class="oldinfotxt">{{content.info_grade}}{{grade}}</view>
+    <view wx:if="{{!needwechat}}" class="oldinfotxt">{{content.info_wechatid}}{{wechatid}}</view>
+  </view>
+</view>
+<view class="guidetexts">
+  <view class="normaltext">{{content.endnote1}}</view>
+</view>
+<view wx:if="{{needwechat}}">
+  <view class="guidetexts">
+    <view class="normaltext">{{content.endnote2}}</view>
+  </view>
+  <view class="input-row">
+    <view class="input-guide">{{content.info_wechatid}}</view>
+    <input class="inputt" bindblur="getwechatid" maxlength='40' />
+  </view>
+</view>
+<view class="input-row">
+  <view class="input-guide">{{content.signuprating}}</view>
+  <picker style="width:90%;" range="{{content.ratingarray}}" bindchange='getRating'>{{content.ratingarray[ratingindex]}}</picker>
+</view>
+<view class="guidetexts">
+  <view class="drawtext">{{content.placesleft_A}}{{imatch.placesleft_A}}</view>
+  <view class="drawtext">{{content.placesleft_B}}{{imatch.placesleft_B}}</view>
+</view>
+<view class="signupbuttonview">
+  <button class="signupc" hover-class="signupchv" bindtap="bindsignup">{{content.signupbutton}}</button>
 </view>

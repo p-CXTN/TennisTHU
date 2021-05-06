@@ -20,12 +20,12 @@
   </view>
   <view class='list'>
     <view class="list_item">
-        <navigator url="../newmatch/newmatch">
+        <navigator url="../checkin/checkin">
         <view class='img'>
-          <image src="../../images/newmatch.png"  mode="aspectFit"/>
+          <image src="../../images/checkin.png"  mode="aspectFit"/>
         </view>
         <view class='info'>
-          <view class='title'>{{content.newmatch}}</view>
+          <view class='title'>{{content.checkin}}</view>
         </view>
         </navigator>
         <view class='clear'></view>

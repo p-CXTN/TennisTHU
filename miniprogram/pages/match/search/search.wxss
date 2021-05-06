@@ -75,7 +75,7 @@
   border-bottom: 1px solid #969696;
 }
 .list_item .colorbar{
-  width: 5%;
+  width: 3%;
   height: 100%;
   float:left;
   margin: 0;
@@ -116,7 +116,7 @@
   align-items: center;
   justify-content: center;
   height: 100%;
-  width: 15%;
+  width: 17%;
   float:left;
 }
 .list_item .info{

@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "search": "./search/search",
-    "groupstandings": "./group/group"
+    "groupstandings": "./group/group",
+    "knockout": "./knockout/knockout"
   }
 }

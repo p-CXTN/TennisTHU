@@ -1,59 +1,80 @@
-
-<view class="title">
+<!--<view class="title">
   说明：如果忘记密码，您可以提交以下信息给我们，审核通过后，您的密码将被重置；
 </view>
 <view class="title">
-  Note: If you forget your password, you can submit the following information. After your request is passed, your password will be automatically reset.
+  Note: If you forget your password, you can submit the following information. After your request is passed, your
+  password will be automatically reset.
+</view>-->
+<view class='img-wrapper'>
+  <view class='img'>
+    <image src="../../images/logintitle.png"  mode="aspectFit"/>
+  </view>
 </view>
+<view class="container">
+  <view class="login-from">
+    <form bindsubmit="formSubmit" class='form'>
+      <view wx:if="{{forgotpwd}}">
+        <view class="myno">
+          <!-- 真实姓名 -->
+          <view class="weui-cell weui-cell_input">
+            <image class="nameImage" src="/images/name.png"></image>
+            <view class="weui-cell__bd">
+              <input class="weui-input" type="text" name="realname" bindblur="syncname"
+                placeholder="{{content.inputrealname}}" />
+            </view>
+          </view>
+        </view>
+        <view class="mypwd">
+          <!-- 学号 -->
+          <view class="weui-cell weui-cell_input">
+            <image class="nameImage" src="/images/name.png"></image>
+            <view class="weui-cell__bd">
+              <input class="weui-input" type="number" name="stuid" bindblur="syncstuid"
+                placeholder="{{content.inputuid}}" />
+            </view>
+          </view>
+        </view>
+        <!-- 电话 -->
+        <view class="mypwd">
+          <view class="weui-cell weui-cell_input">
+            <image class="nameImage" src="/images/name.png"></image>
+            <view class="weui-cell__bd">
+              <input class="weui-input" type="number" name="phone" bindblur="syncphone"
+                placeholder="{{content.inputphoneno}}" />
+            </view>
+          </view>
+        </view>
+      </view>
+      <view wx:if="{{!forgotpwd}}">
+        <view class="mypwd">
+          <view class="weui-cell weui-cell_input">
+            <image class="nameImage" src="/images/name.png"></image>
+            <view class="weui-cell__bd">
+              <input class="weui-input" type="text" password="true" name="oldpwd" bindblur="syncoldpwd"
+                placeholder="{{content.inputoldpwd}}" />
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="mypwd">
+        <view class="weui-cell weui-cell_input">
+          <image class="nameImage" src="/images/name.png"></image>
+          <view class="weui-cell__bd">
+            <input class="weui-input" type="text" password="true" name="newpwd" bindblur="syncpwd"
+              placeholder="{{content.inputnewpwd}}" />
+          </view>
+        </view>
+      </view>
+      <!--按钮-->
+      <view class="loginBtnView">
+        <button class="loginBtn" hover-class="loginBtnhl" bindtap='submit'>{{content.submitreq}}</button>
+      </view>
+      <view wx:if="{{!forgotpwd}}" class="loginBtnView">
+        <button class="loginBtnhl" hover-class="loginBtnhlhv" bindtap='forgetpwd'>{{content.forgetpwd}}</button>
+      </view>
 
-<view class="container"> 
-  <view class="login-from">  
-  <form bindsubmit="formSubmit" class='form'>
-    <view class="myno">
-    <!-- 真实姓名 -->
-      <view class="weui-cell weui-cell_input">
-      <image class="nameImage" src="/images/name.png"></image>
-          <view class="weui-cell__bd">
-              <input class="weui-input" type="text" name="realname" bindblur="syncname" placeholder="{{content.inputrealname}}" />
-          </view>
-      </view>
-    </view>
-    <view class="mypwd">
-      <!-- 学号 -->
-      <view class="weui-cell weui-cell_input">
-      <image class="nameImage" src="/images/name.png"></image>
-          <view class="weui-cell__bd">
-              <input class="weui-input" type="number" name="stuid" bindblur="syncstuid" placeholder="{{content.inputuid}}"/>
-          </view>
-      </view>
-    </view>
-      <!-- 电话 -->
-    <view class="mypwd">
-      <view class="weui-cell weui-cell_input">
-      <image class="nameImage" src="/images/name.png"></image>
-          <view class="weui-cell__bd">
-              <input class="weui-input" type="number" name="phone" bindblur="syncphone" placeholder="{{content.inputphoneno}}"/>
-          </view>
-      </view>
-    </view>
-    <view class="mypwd">
-      <view class="weui-cell weui-cell_input">
-      <image class="nameImage" src="/images/name.png"></image>
-          <view class="weui-cell__bd">
-              <input class="weui-input" type="text" password="true" name="newpwd" bindblur="syncpwd" placeholder="{{content.inputnewpwd}}"/>
-          </view>
-      </view>
-    </view>
-       <!--按钮-->  
-      <view class="loginBtnView">  
-        <button class="loginBtn" bindtap='submit'>{{content.submitreq}}</button>  
-      </view> 
- 
-    
+
     </form>
-    
-  </view>  
+
+  </view>
 </view>
-
-
-

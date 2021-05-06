@@ -1,0 +1,152 @@
+/* miniprogram/pages/checkin/checkin.wxss */
+.input-row {
+  margin: 30rpx auto;
+  border-bottom: 5rpx solid #ffffff;
+  border-top: 5rpx solid #ffffff;
+  display: flex;
+  align-items: center;
+  height: 88rpx;
+  padding: 0 2rpx;
+  /*background-color: #fff;*/
+  font-size: 32rpx;
+  color: #000;
+}
+.input-row .input-guide{
+  margin-right:12rpx;
+  width:32%;
+  text-align: right;
+  color: #353535;
+}
+.controlline{
+  display: inline-flex;
+  height: 80rpx;
+  width: 750rpx;
+  margin-bottom: 20rpx;
+}
+
+.controlline .checkbox{
+  display: flex;
+  align-items: center;
+  float:left;
+  width: 39%;
+  height: 100%;
+  margin-left: 30rpx;
+}
+
+.loginBtnView {
+  display: flex;
+  align-items: center;
+  float: right;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  height: 80rpx;
+  width: 60%;
+}
+.loginBtn {
+  width: 400rpx;
+  height: 100%;
+  line-height: 80rpx;
+  color: #fff;
+  background-color:#8537A1;
+  border: 0.1rpx solid #ccc;
+  border-radius: 40rpx;
+}
+.loginBtnhover{
+  color: #8537A1;
+  background-color:#cfcfcf;
+}
+
+.datalistview{
+  margin-top: 26rpx;
+  margin-left: 40rpx;
+}
+
+.list_item{
+  float: left;
+  height: 200rpx;
+  width: 750rpx;
+  margin-top: 0rpx;
+  border-bottom:1rpx solid #E8E8E8;
+  border-top: 1rpx solid #E8E8E8;
+  margin: 10rpx auto;
+  background-color: #fcfcfc;
+  border-bottom:1px solid #E8E8E8;
+  border-top: 1px solid #E8E8E8;
+}
+.list_item .txtctner{
+  width: 100%;
+  height: 32%;
+  display: inline-flex;
+  margin-top: 20rpx;
+}
+.list_item .txtctner .scaneename{
+  width: 36%;
+  height: 100%;
+  font-weight: 600;
+  font-size: large;
+  float: left;
+  margin-left: 48rpx;
+  display: flex;
+  align-items: center;
+  font-size: 36rpx;
+}
+.list_item .txtctner .classdate{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  float: left;
+  width: 63%;
+  height: 100%;
+  margin-left: 120rpx;
+  color: #707070;
+}
+.list_item .txtctner2{
+  width: 100%;
+  height: 24%;
+  display: inline-flex;
+}
+.list_item .txtctner2 .act1{
+  float: inline-start;
+  width: 50%;
+  height: 100%;
+  font-size: 28rpx;
+  display: flex;
+  color: #999999;
+  margin-left: 48rpx;
+}
+.list_item .txtctner2 .act2{
+  font-size: 28rpx;
+  display: flex;
+  float: inline-end;
+  width: 49%;
+  height: 100%;
+  color: green;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.list_item .txtctner3{
+  width: 100%;
+  height: 28%;
+  float: left;
+}
+.list_item .txtctner3 .chkintime{
+  width: 100%;
+  height: 100%;
+  color: #8d8d8d;
+  padding-left: 48rpx;
+  font-size: 30rpx;
+}
+.list_item .colorbar{
+  width: 2%;
+  height: 100%;
+  float:left;
+  margin: 0;
+  background-color: #8537A1;
+}
+.list_item .datalistdata{
+  width: 96%;
+  height: 100%;
+  float:left;
+  margin: 0;
+}

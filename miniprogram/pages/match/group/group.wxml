@@ -49,7 +49,7 @@
   </view>
 </block>
 
-<!--
+
 <view wx:if="{{permitgranted}}">
   <view class='controlbutton'>
     <button class="hiddenbutton" type="primary" plain="true" bindtap="geth2hresults">1.计算对决结果数组</button>
@@ -60,9 +60,9 @@
   <view class='controlbutton'>
     <button class="hiddenbutton" type="primary" plain="true" bindtap="refreshtiedata">3.更新对决胜负数据</button>
   </view>
+<!--
   <view class='controlbutton'>
     <button class="hiddenbutton" type="primary" plain="true" bindtap="ingroupsort">4.组内排序</button>
-  </view>
+  </view>---->
 </view>
 
----->

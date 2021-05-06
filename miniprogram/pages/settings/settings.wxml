@@ -17,6 +17,12 @@
   </navigator>
 </view>
 
+<view class="uploader">
+  <button hover-class="uploader-text2hv" class="uploader-text2" bindtap="deleteuser">
+    <text>{{content.deleteuser}}</text>
+  </button>
+</view>
+
 <view class="btn">
   <button type="warn" class="btnnn" bindtap="logout">{{content.logout}}</button>
 </view>

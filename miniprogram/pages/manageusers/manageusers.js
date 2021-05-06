@@ -74,9 +74,8 @@ Page({
         passed: false
       }).get({
         success: function(res){
-          console.log(res)
           that.setData({
-            passedlistlength: res.data.length
+            waitlistlength: res.data.length
           })
           for (let i = 0; i < res.data.length; i++) {
             var string = "dataList[" + i + "]";
@@ -95,7 +94,9 @@ Page({
         passed: true
       }).get({
         success: function(res){
-          console.log(res)
+          that.setData({
+            passedlistlength: res.data.length
+          })
           for (let i = 0; i < res.data.length; i++) {
             var string = "dataList[" + i + "]";
             var string2 = res.data[i];
@@ -146,13 +147,21 @@ Page({
     await this.refresh();
   },
 
+  onPullDownRefresh: async function (options) {
+    var that = this;
+    that.refresh();
+    wx.stopPullDownRefresh({
+      success: (res) => { return; },
+    })
+  },
+
   refresh: async function (e) {
     const db = wx.cloud.database();
     var that = this;
     this.setData({
       dataList: {}
     })
-    return new Promise((resolve,reject)=>{
+    await new Promise((resolve,reject)=>{
       db.collection(app.globalData.groupName).where({
         valid: false,
         passed: false
@@ -169,6 +178,20 @@ Page({
               [string]: string2
             })
           }
+          resolve();
+        }
+      })
+    }).catch((e) => {})
+    return new Promise((resolve,reject)=>{
+      db.collection(app.globalData.groupName).where({
+        valid: false,
+        passed: true
+      }).get({
+        success: function(res){
+          console.log(res)
+          that.setData({
+            passedlistlength: res.data.length
+          })
           resolve();
         }
       })

@@ -24,10 +24,11 @@ textarea {
 }
 
 .ctner .oldinfo{
-  background-color: white;
+  background-color: #cfcfcf;
   width: 60%;
-  color: #5c5c5c;
-  border:1px solid #000000;
+  color: #494949;
+  border-radius: 30rpx;
+  padding: 20rpx;
 }
 
 .ctner .oldinfo2{

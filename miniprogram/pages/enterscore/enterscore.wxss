@@ -1,10 +1,71 @@
 /* miniprogram/pages/enterscore/enterscore.wxss */
+
+.pg-heading{
+  margin-top: 30rpx;
+  display: flex;
+  flex-direction: row;
+}
+.pagecontainer{
+  display: flex;
+  flex-direction: column;
+}
+.lrbutton{
+  background-color: #ffffff;
+  width:15%;
+  height: 80rpx;
+  margin-left: 2rpx;
+  border: 4rpx solid #fff;
+  float:left;
+}
+.lrimg{
+  width:100%;
+  height:100%;
+  display: inherit;
+}
+.lrbtn{
+  display: inherit;
+  height:100%;
+}
+button[class="lrbtn"]::after {
+  border: 0;
+}
+.section{
+  width: 69%;
+  float: left;
+}
+.picker{
+  height: 80rpx;
+  background-color: #fafafa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.down-border{
+  border-bottom: 4rpx solid #fff;
+}
+.up-border{
+  border-top: 4rpx solid #fff;
+}
+
 .title{
   margin-top: 20rpx;
   margin-bottom: 30rpx;
-  margin-left: 10rpx;
+  margin-left: 24rpx;
   font-size: medium;
   font-weight: bold;
+}
+.checkboxgroup{
+  width: 100%;
+  height: 60rpx;
+  margin-top: 20rpx;
+  display: flex;
+  align-items: center;
+}
+.checkboxgroup .checkboxlr{
+  width: 50%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .row1{
@@ -37,7 +98,7 @@
   margin-left: 10rpx;
   width:85%;
   border:1px solid #000000;
-  margin-bottom: 30rpx;
+  margin-bottom: 0rpx;
 }
 .loginBtnView {
   margin-top: 20rpx;
@@ -55,10 +116,21 @@
   border: 0.1rpx solid #ccc;
   border-radius: 40rpx;
 }
+
+.loginBtnhv {
+  color: #8537A1;
+  background-color:#ccc;
+  border: 0.1rpx solid #8537A1;
+  border-radius: 40rpx;
+}
+
 .list_item{
   height: 160rpx;
   width: 100%;
-  margin-top: 1rpx;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  border-top: 2rpx solid #444444;
+  border-bottom: 2rpx solid #444444;
 }
 .list_item .status{
   margin: 0;
@@ -150,7 +222,14 @@
   justify-content: center;
 }
 
+.depview{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
 .input-row {
+  width: 100%;
   margin: 30rpx auto;
   border-bottom: 5rpx solid #ffffff;
   border-top: 5rpx solid #ffffff;
@@ -168,4 +247,29 @@
   text-align: right;
   font-size: small;
   color: #353535;
+}
+
+.nopermitimg-wrapper{
+  margin-top: 350rpx;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 300rpx;
+  display: flex;
+}
+
+.nopermitimg{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:100%;
+  width:300rpx;
+}
+.nopermittxt{
+  float:left;
+  margin-top: 15px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

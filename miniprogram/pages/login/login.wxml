@@ -37,6 +37,13 @@
     
   </view>  
 </view>
-
+<view>
+  <view class="weui-footer">
+    <view class="weui-footer__links">
+      <button bindtap="changeLanguage" class="weui-footer__link">{{content.changelanguagebutton}}</button>
+      <button bindtap="forgetpwd" class="weui-footer__link">{{content.forgetpwd}}</button>
+    </view>
+  </view>
+</view>
 
 

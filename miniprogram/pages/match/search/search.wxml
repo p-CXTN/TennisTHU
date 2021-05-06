@@ -49,8 +49,8 @@
 				<view wx:if="{{imatch.subject===\"混双\"}}" class="md"></view>
 			</view>
 			<view class="status">
-				<view wx:if="{{imatch.status===\"Nor\"}}">{{imatch.hour}}:{{imatch.minu}}</view>
-				<view wx:if="{{!(imatch.status===\"Nor\")}}">{{imatch.status}}</view>
+				<view style="padding-left:3rpx;font-size:28rpx;" wx:if="{{imatch.status===\"Nor\"}}">{{imatch.hour}}:{{imatch.minu}}</view>
+				<view style="padding-left:3rpx;font-size:28rpx;" wx:if="{{!(imatch.status===\"Nor\")}}">{{imatch.status}}</view>
 			</view>
 			<view class="info">
 				<view class="sepinfo">

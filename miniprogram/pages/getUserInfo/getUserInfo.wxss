@@ -118,3 +118,14 @@ textarea {
   border: 0.1rpx solid #ccc;
   border-radius: 45rpx;
 }
+.submitbuttonhv{
+  width: 80%;
+  font-weight: bolder;
+  height: 90rpx;
+  line-height: 80rpx;
+  margin-top: 10rpx;
+  color: #313131;
+  background-color:#e6e6e6;
+  border: 0.1rpx solid #8537A1;
+  border-radius: 45rpx;
+}

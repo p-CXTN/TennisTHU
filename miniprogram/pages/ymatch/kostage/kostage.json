@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "espopup": "../espopup/espopup"
+  }
+}

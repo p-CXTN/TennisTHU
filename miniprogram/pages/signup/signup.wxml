@@ -1,14 +1,6 @@
 <!--miniprogram/pages/signup/signup.wxml-->
-<!--
-<view wx:if="{{nomatch}}">
-  <view class='img'>
-    <image src="../../images/nomatch.png"  mode="aspectFit"/>
-  </view>
-  <view class='txt'>
-    <text>{{content.nomatch}}</text>
-  </view>
-</view>
 
+<!--
 <block wx:for='{{dataList}}' wx:key='list' wx:for-item="item">
   <view class="list_item">
     <view class='info'>
@@ -29,6 +21,7 @@
 </block>
 -->
 
+<!----
 <view class='img-wrapper'>
   <view class='img'>
     <image src="../../images/UnderConstruction.png"  mode="aspectFit"/>
@@ -36,4 +29,65 @@
 </view>
 <view class='txt'>
   <text>{{content.underconstruction}}</text>
+</view>-->
+
+<view class="container">
+  <view class="userinfo">
+    <button open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" class="userinfo-avatar"
+      style="background-image: url({{avatarUrl}})" disabled="true"></button>
+  </view>
+
+  <view class="userinfo-nickname">
+    <text>{{realname}}</text>
+  </view>
+</view>
+
+<view wx:if="{{nomatch}}" class='img-wrapperr'>
+  <view class='imgr'>
+    <image src="../../images/nomatch.png" mode="aspectFit" />
+  </view>
+  <view class='txtr'>
+    <text>{{content.nomatch}}</text>
+  </view>
+</view>
+
+<view wx:if="{{!nomatch}}" class="match">
+  <view class="matchtitleintro">{{content.ongoingmatch}}</view>
+  <view class="matchtitle">{{match.name}}</view>
+  <view wx:if="{{signedup}}" class="signedupview">
+    <button disabled="true" class="signedupb">{{content.signedup}}</button>
+  </view>
+  <view class="matchtime">
+    <view class="matchdate">{{match.month}}.{{match.date}}.{{currentYear}}</view>
+    <view class="starttime">{{content.starttime}}{{match.starttime}}:00</view>
+  </view>
+  <view class="introctn">
+    <view class="introview">
+      <view class="intro">
+        <view style="font-weight:600">{{content.matchintro}}</view>
+        <view>{{match.intro}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="introctn">
+    <view class="rulesview">
+      <view class="rules">
+        <view style="font-weight:600">{{content.matchrules}}</view>
+        <view>{{match.rules}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="guidetexts">
+    <view class="drawtext">{{content.placesleft_A}}{{match.placesleft_A}}</view>
+    <view class="drawtext">{{content.placesleft_B}}{{match.placesleft_B}}</view>
+  </view>
+  <view class="signupbuttonview">
+    <button disabled="{{signedup}}" class="signupc" hover-class="signupchv"
+      bindtap="bindsignup">{{content.signupbutton}}</button>
+    <button hidden="{{!signedup}}" class="signupcc" hover-class="signupcchv"
+      bindtap="bindcancelsignup">{{content.cancelsignupbutton}}</button>
+  </view>
+  <view class="signupbuttonview">
+
+  </view>
 </view>

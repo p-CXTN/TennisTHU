@@ -99,7 +99,7 @@ Component({
         groupnums: j
       })
     },
-    /*
+    
     geth2hresults: async function(){
       var that = this;
       await new Promise((resolve,reject)=>{
@@ -143,17 +143,17 @@ Component({
         showCancel:false
       })
     },
-    updatewl: function(__id,tiew,tiel,matchw,matchl,gamew,gamel){
+    updatewl: async function(__id,tiew,tiel/*,matchw,matchl,gamew,gamel*/){
       const db = wx.cloud.database();
       return new Promise((resolve,reject)=>{
         db.collection("groupStandings").doc(__id).update({
           data: {
             tiew: tiew,
-            tiel: tiel,
+            tiel: tiel,/*
             matchw: matchw,
             matchl: matchl,
             gamew: gamew,
-            gamel: gamel
+            gamel: gamel*/
           },success:function(res){
             resolve();
           }
@@ -253,7 +253,7 @@ Component({
       
       for(i = 1; i<49; i++){
         await that.findupdatetiewl(i);
-        await that.updatewl(that.data.__id,ttiew[i],ttiel[i],tmatchw[i],tmatchl[i],tgamew[i],tgamel[i]);
+        await that.updatewl(that.data.__id,ttiew[i],ttiel[i]/*,tmatchw[i],tmatchl[i],tgamew[i],tgamel[i]*/);
 //更新groupStandings里面的tiew和tiel
       }
       wx.hideLoading({
@@ -273,7 +273,7 @@ Component({
     },
     ingroupsort:async function(){
       
-    }*/
+    }
   },
   attached:async function () {
     wx.showLoading({

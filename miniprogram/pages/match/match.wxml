@@ -1,15 +1,22 @@
 <view wx:if="{{permitgranted}}" class='container'>
 
   <view class='tab-wrapper'>
-    <view id='tab2' class='tab-0 {{currentTab === 2 ? "tab-active" : ""}}' bindtap='switchTab'>{{content.tab_search}}</view>
-    <view id='tab1' class='tab-0 {{currentTab === 1 ? "tab-active" : ""}}' bindtap='switchTab'>{{content.tab_groupstandings}}</view>
+    <view id='tab2' class='tab-0 {{currentTab === 2 ? "tab-active" : ""}}' bindtap='switchTab'>{{content.tab_search}}
+    </view>
+    <view id='tab1' class='tab-0 {{currentTab === 1 ? "tab-active" : ""}}' bindtap='switchTab'>
+      {{content.tab_groupstandings}}</view>
+    <view id='tab3' class='tab-0 {{currentTab === 3 ? "tab-active" : ""}}' bindtap='switchTab'>
+      {{content.tab_knockout}}</view>
   </view>
 
   <view class='content-wrapper' wx:if='{{currentTab === 2}}'>
-    <search language="{{language}}"/>
+    <search language="{{language}}" />
   </view>
   <view class='content-wrapper' wx:if='{{currentTab === 1}}'>
-    <groupstandings language="{{language}}"/>
+    <groupstandings language="{{language}}" />
+  </view>
+  <view class='content-wrapper' wx:if='{{currentTab === 3}}'>
+    <knockout language="{{language}}" />
   </view>
 
 </view>
@@ -17,7 +24,7 @@
 <view wx:if="{{!permitgranted}}">
   <view class='img-wrapper'>
     <view class="img">
-      <image src="../../images/warning.png"  mode="aspectFit"/>
+      <image src="../../images/warning.png" mode="aspectFit" />
     </view>
   </view>
   <view class='txt'>

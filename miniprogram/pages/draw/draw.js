@@ -9,6 +9,9 @@ Page({
    */
   data: {
     enable:true,
+    permit: 0,
+    flag: false,
+    rflag: true,
     dep1:"",
     ms11:"男一单",
     ms21:"男二单",
@@ -26,6 +29,36 @@ Page({
     id3:"",
     id4:"",
     id5:"",
+    language: "中文",
+  },
+
+  onLoad: function(e){
+    var lan = app.globalData.language;
+    this.setData({
+      language: lan
+    })
+    var lastLanuage = this.data.language;
+    this.getContent(lastLanuage);
+
+    this.setData({
+      permit: app.globalData.permit
+    })
+    if (app.globalData.permit >= 4)
+      this.setData({
+        flag: true,
+        rflag: false
+      })
+  },
+  getContent: function (lastLanuage) {
+    if (lastLanuage == "中文") {
+      this.setData({
+        content: chinese.content,
+      })
+    } else {
+      this.setData({
+        content: english.content
+      })
+    }
   },
 
   binddep1:function(e){
@@ -132,7 +165,6 @@ Page({
     const db = wx.cloud.database();
     var that = this;
     return new Promise((resolve,reject)=>{
-      console.log("HA");
       db.collection('match').where({
         dep1: that.data.dep1,
         dep2: that.data.dep2,
@@ -140,6 +172,10 @@ Page({
       }).get({
         success:function(res){
           console.log(res);
+          if(res.data.length == 0){
+            that.data.enable = true;
+            resolve();
+          }
           that.setData({
             id1: res.data[0]._id
           })
@@ -158,6 +194,10 @@ Page({
         subject: "二单"
       }).get({
         success:function(res){
+          if(res.data.length == 0){
+            that.data.enable = true;
+            resolve();
+          }
           that.setData({
             id2: res.data[0]._id
           })
@@ -177,6 +217,10 @@ Page({
         subject: "女单"
       }).get({
         success:function(res){
+          if(res.data.length == 0){
+            that.data.enable = true;
+            resolve();
+          }
           that.setData({
             id3: res.data[0]._id
           })
@@ -196,6 +240,10 @@ Page({
         subject: "男双"
       }).get({
         success:function(res){
+          if(res.data.length == 0){
+            that.data.enable = true;
+            resolve();
+          }
           that.setData({
             id4: res.data[0]._id
           })
@@ -215,6 +263,10 @@ Page({
         subject: "混双"
       }).get({
         success:function(res){
+          if(res.data.length == 0){
+            that.data.enable = true;
+            resolve();
+          }
           that.setData({
             id5: res.data[0]._id
           })
@@ -364,6 +416,23 @@ Page({
     })
     await that.judgereverse();
     await Promise.all([that.getmatchid1(),that.getmatchid2(),that.getmatchid3(),that.getmatchid4(),that.getmatchid5()]);
+    if(that.data.enable){
+      wx.showModal({
+        title: '错误',
+        content: "没有找到对应院系的比赛",
+        showCancel: false,
+        success:function(res){
+          wx.hideLoading({
+            success: (res) => {
+              that.setData({
+                enable: true
+              })
+              return;
+            },
+          })
+        }
+      })
+    }
     await Promise.all([that.submit1(),that.submit2(),that.submit3(),that.submit4(),that.submit5()]);
     wx.hideLoading({
       success: (res) => {that.naviback();},

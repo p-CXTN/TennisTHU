@@ -1,0 +1,190 @@
+/* pages/match/knockout/knockout.wxss */
+@import "../search/search.wxss";
+.leftrowlist{
+  float: left;
+  height: auto;
+  width: 70%;
+  margin-top: 156rpx;
+}
+.leftrowlist .leftlistitem{
+  height: 80rpx;
+  width: 100%;
+  display: flex;
+}
+.leftrowlist .leftlistitem .resname{
+  height: 100%;
+  width: 148rpx;
+  font-weight: 600;
+  font-size: large;
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.leftrowlist .leftlistitem .scoresanddots{
+  height: 100%;
+  width: 292rpx;
+  display: flex;
+  flex-direction: column;
+}
+.leftrowlist .leftlistitem .scoresanddots .scores{
+  height: 64rpx;
+  width: 100%;
+  display: flex;
+}
+.leftrowlist .leftlistitem .scoresanddots .scores .placeholderleft{
+  height: 100%;
+  width: 42rpx;
+}
+.leftrowlist .leftlistitem .scoresanddots .scores .placeholdermid{
+  height: 100%;
+  width: 12rpx;
+}
+.leftrowlist .leftlistitem .scoresanddots .scores .scorenum{
+  height: 100%;
+  width: 32rpx;
+  display: flex;
+  color: #b1b1b1;
+  justify-content: center;
+  align-items: center;
+}
+
+.leftrowlist .leftlistitem .scoresanddots .colordot{
+  height: 16rpx;
+  width: 100%;
+  display: flex;
+}
+.leftrowlist .leftlistitem .scoresanddots .colordot .placeholderleft{
+  height: 100%;
+  width: 50rpx;
+}
+.placeholdermiddot{
+  height: 100%;
+  width: 28rpx;
+}
+.neutralmatches .placeholdermiddot{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 28rpx;
+}
+.placeholderdot{
+  height: 100%;
+  width: 16rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ms1dot{
+  height: 90%;
+  width: 90%;
+  background-color: #80beaf;
+}
+.ms2dot{
+  height: 100%;
+  width: 16rpx;
+  background-color: #b3ddd1;
+}
+.wsdot{
+  height: 100%;
+  width: 16rpx;
+  background-color: #ee9c6c;
+}
+.doudot{
+  height: 100%;
+  width: 16rpx;
+  background-color: #d1dce2;
+}
+.mddot{
+  height: 100%;
+  width: 16rpx;
+  background-color: #f5b994;
+}
+.doubleplaceholder{
+  border-top: 4rpx solid #969696;
+}
+.neutralmatches{
+  height: 16rpx;
+  width: 100%;
+  display: flex;
+}
+.neutralmatches .placeholderleft{
+  height: 100%;
+  width: 198rpx;
+}
+.tiew{
+  height: 100%;
+  width: 10%;
+  color: #585858;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 48rpx;
+  font-weight: 600;
+}
+
+.rightrowlist{
+  float: right;
+  height: auto;
+  width: 30%;
+  margin-top: 156rpx;
+  display: flex;
+  flex-direction: column;
+}
+.rightrowlist .rightlistitem{
+  height: 180rpx;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.rightrowlist .rightlistitem .h2h{
+  height: 80%;
+  width: 24rpx;
+  color: #f3f3f3;
+  display: flex;
+  font-size: 24rpx;
+  justify-content: center;
+  align-items: center;
+  background-color: #8537A1;
+}
+.rightrowlist .rightlistitem .lineseg{
+  height: 36%;
+  width: 32rpx;
+  display: flex;
+  flex-direction: column;
+}
+.rightrowlist .rightlistitem .lineseg .linesegtop{
+  height: 50%;
+  width: 100%;
+}
+.rightrowlist .rightlistitem .lineseg .linesegbottom{
+  height: 50%;
+  width: 100%;
+  border-top: 4rpx solid #c4c4c4;
+  border-right: 4rpx solid #c4c4c4;
+}
+.rightrowlist .rightlistitem .depname{
+  height: 36%;
+  border-bottom: 4rpx solid #c4c4c4;
+  width: 130rpx;
+  color: #363636;
+  font-weight: 600;
+  font-size: 36rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.controlbutton{
+  margin-top: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 30rpx;
+}
+.hiddenbutton{
+  margin-top: 20rpx;
+  width: 80%;
+}

@@ -9,7 +9,6 @@ Page({
    */
   data: {
 
-    email: "",
     realname: "真实姓名",
     gender: "男",
     phone: "0",
@@ -30,13 +29,14 @@ Page({
     ratingindex: 0, 
     officerarray: ['我有意愿成为干事', '否'],
     officerindex: 1,
-
+    needwechat: false,
     flag: null,
     rflag: null ,
     flag2: false,
     rflag2: true,
     lanflag: false,
-    language: "中文"
+    language: "中文",
+    userid: "",
   },
 
   /**
@@ -45,8 +45,12 @@ Page({
   onLoad: function (options) {
     console.log("Current group is",app.globalData.groupName);
     var lan = app.globalData.language;
+    var needwechat = false;
+    console.log(app.globalData.wechatid)
+    if(app.globalData.wechatid === "")needwechat = true;
     this.setData({
-      language: lan
+      language: lan,
+      needwechat: needwechat
     })
     if(lan == "中文")this.setData({
       lanflag: true
@@ -81,12 +85,14 @@ Page({
     }).get({
       success: function(res){
         that.setData({
+          userid: res.data[0]._id,
           realname: res.data[0].realname,
           gender: res.data[0].gender,
           phone: res.data[0].phone,
           grade: res.data[0].grade,
           department: res.data[0].department,
           stuid: res.data[0].stuid,
+          wechatid: res.data[0].wechatid,
         })
       }
     })
@@ -133,11 +139,6 @@ Page({
     }
   },
 
-  getemail: function(e){
-    this.setData({
-      email: e.detail.value
-    })
-  },
   getwechatid: function (e) {
     this.setData({
       wechatid: e.detail.value
@@ -172,7 +173,15 @@ Page({
 
   submit: function(e){
     var that = this;
-    if(this.data.wechatid == "" || this.data.email == "")
+    const db = wx.cloud.database();
+    if(that.data.needwechat){
+      db.collection('users').doc(that.data.userid).update({
+        data:{
+          wechatid: that.data.wechatid
+        }
+      })
+    }
+    if(that.data.needwechat && that.data.wechatid === "")
     {
       wx.showModal({
         title: that.data.content.modalwarning,
@@ -184,8 +193,6 @@ Page({
     else
     {
 
-      const db = wx.cloud.database();
-      var that = this;
       var nickn = app.globalData.nickName;
       var avturl = app.globalData.avatarUrl;
 
@@ -203,41 +210,87 @@ Page({
         success:function(res){
           if(res.cancel){return;}
           else{
-            db.collection(app.globalData.groupName).add({
-              data: {
-                nickname: nickn,
-                realname: that.data.realname,
-                stuid: that.data.stuid,
-                gender: that.data.gender,
-                rating: that.data.rating,
-                phone: that.data.phone,
-                grade: that.data.grade,
-                department: that.data.department,
-                avatarurl: avturl,
-                email: that.data.email,
-                classdate: that.data.classdate,
-                wechat: that.data.wechatid,
-                officer: that.data.officer,
-                actionpoints: 8,
-                passed: false,
-                valid: false
-              },
-              success: res => {
-                wx.showModal({
-                  title: that.data.content.modalhint,
-                  content: that.data.content.modalsubmitsuccess,
-                  showCancel:false,
-                  confirmText: that.data.content.confirmtext,
-                  success: function(res){
-                    that.setData({
-                      flag2: true,
-                      rflag2: false
-                    })
-                  }
-                })
-                console.log('[新增记录] 成功，记录 _id: ', res._id)
-              }
-            })
+            if(that.data.classdate == 4){
+              db.collection(app.globalData.groupName).add({
+                data: {
+                  nickname: nickn,
+                  realname: that.data.realname,
+                  stuid: that.data.stuid,
+                  gender: that.data.gender,
+                  rating: that.data.rating,
+                  phone: that.data.phone,
+                  grade: that.data.grade,
+                  department: that.data.department,
+                  avatarurl: avturl,
+                  classdate: 4,
+                  wechat: that.data.wechatid,
+                  officer: that.data.officer,
+                  actionpoints: 0,
+                  passed: false,
+                  valid: false,
+                  scanned: false,
+                  z_act: [true,true,false,true,false,true,false,true,false,true,false,true,false,true,false,true,false],
+                  z_chkin: [true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false]
+                },
+                success: res => {
+                  wx.showModal({
+                    title: that.data.content.modalhint,
+                    content: that.data.content.modalsubmitsuccess,
+                    showCancel:false,
+                    confirmText: that.data.content.confirmtext,
+                    success: function(res){
+                      that.setData({
+                        flag2: true,
+                        rflag2: false
+                      })
+                      wx.navigateBack({
+                        delta: 2,
+                      })
+                    }
+                  })
+                }
+              })
+            } else if(that.data.classdate == 6){
+              db.collection(app.globalData.groupName).add({
+                data: {
+                  nickname: nickn,
+                  realname: that.data.realname,
+                  stuid: that.data.stuid,
+                  gender: that.data.gender,
+                  rating: that.data.rating,
+                  phone: that.data.phone,
+                  grade: that.data.grade,
+                  department: that.data.department,
+                  avatarurl: avturl,
+                  classdate: 6,
+                  wechat: that.data.wechatid,
+                  officer: that.data.officer,
+                  actionpoints: 0,
+                  passed: false,
+                  valid: false,
+                  scanned: false,
+                  z_act: [true,false,true,false,true,false,true,false,true,false,true,false,true,false,true,false,true],
+                  z_chkin: [true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false]
+                },
+                success: res => {
+                  wx.showModal({
+                    title: that.data.content.modalhint,
+                    content: that.data.content.modalsubmitsuccess,
+                    showCancel:false,
+                    confirmText: that.data.content.confirmtext,
+                    success: function(res){
+                      that.setData({
+                        flag2: true,
+                        rflag2: false
+                      })
+                      wx.navigateBack({
+                        delta: 2,
+                      })
+                    }
+                  })
+                }
+              })
+            }
           }
         }
       })
