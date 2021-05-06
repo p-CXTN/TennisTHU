@@ -1,0 +1,88 @@
+/* pages/ymatch/rrstage/rrstage.wxss */
+@import"../../match/group/group.wxss";
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.placeholder{
+  margin-top: 80rpx;
+  height:100rpx;
+}
+.matrix{
+  height: 500rpx;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2rpx solid #c0c0c0;
+}
+.matrix .matrix-row{
+  height:100rpx;
+  width:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: cadetblue;
+}
+.matrix .matrix-row .matrix-item{
+  width:20%;
+  height:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.matrix .matrix-row .matrix-bitem{
+  width:20%;
+  height:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  font-size: 28rpx;
+}
+.matrix .matrix-row .matrix-block{
+  width:20%;
+  height:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #c0c0c0;
+}
+.matrix .matrix-row .matrix-button{
+  width:100%;
+  height:100%;
+  border-radius: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.matrix-button::after {
+  border-radius: 0;
+  border: 0;
+}
+.matrix .matrix-row .matrix-buttonhv{
+  background-color: #919191;
+}
+.hint{
+  width:90%;
+  color:#797979;
+  margin-top: 10rpx;
+  display: flex;
+  font-size: 21rpx;
+  justify-content: center;
+  align-items: center;
+}
+
+.hiddenbutton{
+  height: 80rpx;
+  padding: 0;
+  border-radius: 40rpx;
+  width: 72%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
