@@ -35,7 +35,7 @@ Page({
     this.setData({
       permitgranted: permitgranted
     })
-    if(app.globalData.permit>=5)permitgranted = true;
+    if(app.globalData.permit>=6)permitgranted = true;
     else permitgranted = false;
     app.globalData.vpermitgranted = permitgranted;
     var days=0;
@@ -95,6 +95,8 @@ Page({
       this.setData({ currentTab: -1 })
     }  else if (tab === 'tab1') {
       this.setData({ currentTab: 1 })
+    } else if (tab === 'tab3') {
+      this.setData({ currentTab: 3 })
     }
   }
 })

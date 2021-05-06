@@ -31,26 +31,27 @@
     <view class="normaltext">{{content.endnote2}}</view>
   </view>
   
-  <view class="input-row">
+  <view class="input-row" wx:if="{{needwechat}}">
     <view class="input-guide">{{content.info_wechatid}}</view>
     <input class="inputt" bindblur="getwechatid" maxlength='40'/>
   </view>
-
+<!--
   <view class="input-row">
     <view class="input-guide">{{content.info_email}}</view>
     <input class="inputt" bindblur="getemail" placeholder="{{content.ph_email}}" maxlength='40'/>
-  </view>
+  </view>  -->
   
   <view class="input-row">
     <view class="input-guide">{{content.info_classdate}}</view>
-    <picker range="{{classarray}}" bindchange='getclassdate'>{{classarray[classindex]}}</picker>
+    <picker style="width:90%;" range="{{classarray}}" bindchange='getclassdate'>{{classarray[classindex]}}</picker>
   </view>
+  <view class="warningsection" wx:if="{{classdate == 4}}">{{content.thurstimespring}}</view>
   <view class="warningsection" wx:if="{{thursfull}}">{{content.thursfull}}</view>
   <view class="warningsection" wx:if="{{satfull}}">{{content.satfull}}</view>
 
   <view class="input-row">
     <view class="input-guide">{{content.info_rating}}</view>
-    <picker range="{{ratingarray}}" bindchange='getRating'>{{ratingarray[ratingindex]}}</picker>
+    <picker style="width:90%;" range="{{ratingarray}}" bindchange='getRating'>{{ratingarray[ratingindex]}}</picker>
   </view>
 
   <view class="guidetexts">
@@ -70,7 +71,7 @@
   </view>
   <view wx:if="{{lanflag}}" class="input-row">
     <view class="input-guide">{{content.becomeofficer}}</view>
-      <picker range="{{officerarray}}" bindchange='getofficer'>{{officerarray[officerindex]}}</picker>
+      <picker style="width:90%;" range="{{officerarray}}" bindchange='getofficer'>{{officerarray[officerindex]}}</picker>
   </view>
 
   <view class="guidetexts">
@@ -81,6 +82,7 @@
   </view>
 </view>
 
+<!--
 <view wx:if="{{flag2}}">
   <view  class="img-wrapper">
     <view class='img'>
@@ -92,7 +94,7 @@
   <view class='guidetexts'>
     <view class="normaltext">{{content.submitsuccess3}}</view>
   </view>
-</view>
+</view> -->
 
 <view wx:if="{{flag&&rflag2}}">
   <view class="weui-footer">

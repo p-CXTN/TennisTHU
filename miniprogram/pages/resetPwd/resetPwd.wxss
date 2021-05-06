@@ -1,3 +1,19 @@
 /* miniprogram/pages/resetPwd/resetPwd.wxss */
 @import "../login/login.wxss";
-@import "../enterscore/enterscore.wxss"
+@import "../enterscore/enterscore.wxss";
+.loginBtnhl {
+  width: 600rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  margin-top: 35rpx;
+  color: #8537A1;
+  background-color:#f7f7f7;
+  border: 0.1rpx solid #ccc;
+  border-radius: 40rpx;
+}
+.loginBtnhlhv {
+  color: #555555;
+  background-color:#ebebeb;
+  border: 0.1rpx solid #ccc;
+  border-radius: 40rpx;
+}

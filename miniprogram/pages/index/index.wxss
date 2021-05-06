@@ -27,7 +27,7 @@ button::after{
   width: 150rpx;
   height: 150rpx;
   margin: 0;
-  border: 4rpx solid;
+  border: 6rpx solid;
   border-radius: 100%;
   border-color: #8537A1;
   background-size: cover;

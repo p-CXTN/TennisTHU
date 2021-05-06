@@ -1,0 +1,171 @@
+<!--pages/match/knockout/knockout.wxml-->
+<view class="pg-heading">
+	<!--<picker value="{{ablevelindex}}" range="{{ablevel}}" bindchange="bindablevelchange">
+		<view class="picker up-border">
+			{{ablevel[ablevelindex]}}
+		</view>
+  </picker>-->
+
+	<view class="lrbutton">
+		<button class="lrbtn" bindtap="toleft">
+			<image class="lrimg" src="../../../images/ToLeft.png" mode="aspectFit" />
+		</button>
+	</view>
+	<view class="section">
+		<picker bindchange="bindroundschange" value="{{roundsindex}}" range="{{rounds}}">
+			<view class="picker up-border down-border">
+				{{rounds[roundsindex]}}
+			</view>
+		</picker>
+	</view>
+	<view class="lrbutton">
+		<button class="lrbtn" bindtap="toright">
+			<image class="lrimg" src="../../../images/ToRight.png" mode="aspectFit" />
+		</button>
+	</view>
+</view>
+
+<view class="leftrowlist">
+	<block wx:for="{{reslist[roundsindex]}}" wx:key="numkey" wx:for-index='num' wx:for-item="ires">
+		<view wx:if="{{(ires.number%2!=0)&&(num!=0)}}" class="doubleplaceholder"></view>
+		<view class="leftlistitem">
+			<view class="resname">{{ires.name}}</view>
+			<view class="scoresanddots">
+				<view wx:if="{{ires.number%2!=0}}" class="scores">
+					<view class="placeholderleft"></view>
+					<view class="scorenum">
+						<view>{{ires.ms1n?'-':ires.ms1s}}</view>
+					</view>
+					<view class="placeholdermid"></view>
+					<view class="scorenum">
+						<view>{{ires.ms2n?'-':ires.ms2s}}</view>
+					</view>
+					<view class="placeholdermid"></view>
+					<view class="scorenum">
+						<view>{{ires.wsn?'-':ires.wss}}</view>
+					</view>
+					<view class="placeholdermid"></view>
+					<view class="scorenum">
+						<view>{{ires.doun?'-':ires.dous}}</view>
+					</view>
+					<view class="placeholdermid"></view>
+					<view class="scorenum">
+						<view>{{ires.mdn?'-':ires.mds}}</view>
+					</view>
+				</view>
+
+				<view wx:if="{{ires.number%2!=0}}" class="colordot">
+					<view class="placeholderleft"></view>
+					<view class="placeholderdot">
+						<view wx:if="{{ires.ms1}}" class="ms1dot"></view>
+					</view>
+					<view class="placeholdermiddot"></view>
+					<view class="placeholderdot">
+						<view wx:if="{{ires.ms2}}" class="ms2dot"></view>
+					</view>
+					<view class="placeholdermiddot"></view>
+					<view class="placeholderdot">
+						<view wx:if="{{ires.ws}}" class="wsdot"></view>
+					</view>
+					<view class="placeholdermiddot"></view>
+					<view class="placeholderdot">
+						<view wx:if="{{ires.dou}}" class="doudot"></view>
+					</view>
+					<view class="placeholdermiddot"></view>
+					<view class="placeholderdot">
+						<view wx:if="{{ires.md}}" class="mddot"></view>
+					</view>
+				</view>
+
+				<view wx:if="{{ires.number%2==0}}" class="colordot">
+					<view class="placeholderleft"></view>
+					<view class="placeholderdot">
+						<view wx:if="{{ires.ms1}}" class="ms1dot"></view>
+					</view>
+					<view class="placeholdermiddot"></view>
+					<view class="placeholderdot">
+						<view wx:if="{{ires.ms2}}" class="ms2dot"></view>
+					</view>
+					<view class="placeholdermiddot"></view>
+					<view class="placeholderdot">
+						<view wx:if="{{ires.ws}}" class="wsdot"></view>
+					</view>
+					<view class="placeholdermiddot"></view>
+					<view class="placeholderdot">
+						<view wx:if="{{ires.dou}}" class="doudot"></view>
+					</view>
+					<view class="placeholdermiddot"></view>
+					<view class="placeholderdot">
+						<view wx:if="{{ires.md}}" class="mddot"></view>
+					</view>
+				</view>
+
+				<view wx:if="{{ires.number%2==0}}" class="scores">
+					<view class="placeholderleft"></view>
+					<view class="scorenum">
+						<view>{{ires.ms1n?'-':ires.ms1s}}</view>
+					</view>
+					<view class="placeholdermid"></view>
+					<view class="scorenum">
+						<view>{{ires.ms2n?'-':ires.ms2s}}</view>
+					</view>
+					<view class="placeholdermid"></view>
+					<view class="scorenum">
+						<view>{{ires.wsn?'-':ires.wss}}</view>
+					</view>
+					<view class="placeholdermid"></view>
+					<view class="scorenum">
+						<view>{{ires.doun?'-':ires.dous}}</view>
+					</view>
+					<view class="placeholdermid"></view>
+					<view class="scorenum">
+						<view>{{ires.mdn?'-':ires.mds}}</view>
+					</view>
+				</view>
+			</view>
+			<view class="tiew">{{ires.matchw}}</view>
+		</view>
+		<view wx:if="{{ires.number%2!=0}}" class="neutralmatches">
+			<view class="placeholderleft"></view>
+			<view class="placeholderdot">
+				<view wx:if="{{ires.ms1n}}" class="ms1dot"></view>
+			</view>
+			<view class="placeholdermiddot">-</view>
+			<view class="placeholderdot">
+				<view wx:if="{{ires.ms2n}}" class="ms2dot"></view>
+			</view>
+			<view class="placeholdermiddot">-</view>
+			<view class="placeholderdot">
+				<view wx:if="{{ires.wsn}}" class="wsdot"></view>
+			</view>
+			<view class="placeholdermiddot">-</view>
+			<view class="placeholderdot">
+				<view wx:if="{{ires.doun}}" class="doudot"></view>
+			</view>
+			<view class="placeholdermiddot">-</view>
+			<view class="placeholderdot">
+				<view wx:if="{{ires.mdn}}" class="mddot"></view>
+			</view>
+		</view>
+	</block>
+</view>
+
+
+<view class="rightrowlist">
+	<block wx:for="{{reslist[roundsindex+1]}}" wx:key='num' wx:for-item="ires">
+		<view class="rightlistitem">
+			<text class="h2h">H
+				2
+				H</text>
+			<view class="lineseg">
+				<view class="linesegtop"></view>
+				<view class="linesegbottom"></view>
+			</view>
+			<view class="depname">{{ires.name}}</view>
+		</view>
+	</block>
+</view>
+
+<view wx:if="{{permitgranted}}" class='controlbutton'>
+	<button class="hiddenbutton" type="primary" plain="true" bindtap="refreshwinner">更新对决结果</button>
+</view>

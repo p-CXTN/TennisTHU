@@ -35,13 +35,17 @@
     </view>
 
     <view class="input-row">
+      <view class="input-guide">{{content.info_wechatid}}</view>
+      <input class="inputt" bindblur="getwechatid" maxlength='40'/>
+    </view>
+    <view class="input-row">
       <view class="input-guide">{{content.gui_school}}</view>
-      <input class="inputt" bindblur="getSchool" placeholder="{{content.gui_schoolph}}" type="text" maxlength='20'/>
+      <input class="inputt" bindblur="getSchool" placeholder="{{content.gui_schoolph}}" type="text" maxlength='30'/>
     </view>
 
     <view class="input-row">
       <view class="input-guide">{{content.gui_department}}</view>
-      <input class="inputt" bindblur="getDepartment" placeholder="{{content.gui_departmentph}}" type="text" maxlength='20'/>
+      <input class="inputt" bindblur="getDepartment" placeholder="{{content.gui_departmentph}}" type="text" maxlength='50'/>
     </view>
 
     <view class="input-row">
@@ -66,6 +70,6 @@
 
   </view>
   <view class="submitbuttonview">
-    <button class="submitbutton" bindtap="submit">{{content.submitinfo}}</button>
+    <button class="submitbutton" hover-class="submitbuttonhv" bindtap="submit">{{content.submitinfo}}</button>
   </view>
 </view>

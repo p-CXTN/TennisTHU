@@ -1,15 +1,10 @@
 /* miniprogram/pages/apply/apply.wxss */
-.img{
-  margin-top: 15px;
-  width: 100%;
+@import "../signup/signup.wxss";
+@import "../joinSTAT/joinSTAT.wxss";
+.guidetexts .drawtext{
+  width:100%;
   display: flex;
-  align-items: center;
   justify-content: center;
-}
-.txt{
-  margin-top: 15px;
-  width: 100%;
-  display: flex;
   align-items: center;
-  justify-content: center;
+  color: #757575;
 }

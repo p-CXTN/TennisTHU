@@ -1,3 +1,13 @@
+/******************************************************
+ * Permissions:
+ *    Level 1:  Normal TSTA Member/User
+ *    Level 2:  Team Captains
+ *    Level 3:  Coaches
+ *    Level 4:  Officers
+ *    Level 5:  Senior Officer/TSTA Vice President
+ *    Level 6:  TSTA President/Developer
+ */
+
 //index.js
 var chinese = require("../../utils/Chinese.js")
 var english = require("../../utils/English.js")
@@ -42,6 +52,7 @@ Page({
   onGetUserInfo: async function(e) {
     var that = this;
     const db = wx.cloud.database();
+    console.log(e.detail.userInfo)
     app.globalData.avatarUrl = e.detail.userInfo.avatarUrl;
     app.globalData.nickName = e.detail.userInfo.nickName;
     await new Promise((resolve,reject)=>{
@@ -49,13 +60,14 @@ Page({
         avatarurl: e.detail.userInfo.avatarUrl
       }).get({
         success: function(res) {
-          console.log(res)
           if(res.data.length == 0)resolve();
           if (res.data[0].nickname == e.detail.userInfo.nickName)
           {
             console.log('查询用户 成功: ', res)
             app.globalData.logged = true;
             app.globalData.realname = res.data[0].realname;
+            app.globalData.openid = res.data[0]._openid;
+            if(res.data[0].wechatid)app.globalData.wechatid = res.data[0].wechatid;
             that.setData({
               flag: true,
               realname: res.data[0].realname,
@@ -89,6 +101,7 @@ Page({
   },
 
   onLoad: function(e){
+    var that = this;
     var lan = app.globalData.language;
     this.setData({
       language: lan
@@ -103,6 +116,7 @@ Page({
         app.globalData.groupName = res.data.groupname;
       }
     })
+
   },
 
   onShareAppMessage:function(){

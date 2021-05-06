@@ -1,4 +1,5 @@
 /* miniprogram/pages/STATinfo/STATinfo.wxss */
+@import "../index/index.wxss";
 .img{
   margin-top: 0px;
   height: 350rpx;
@@ -16,30 +17,34 @@
 }
 
 .welcome{
-  margin-left: 20rpx;
+  margin-left: 32rpx;
+  margin-right: 32rpx;
   margin-top: 50rpx;
   color: #000000e8;
+  font-size: 28rpx;
 }
 
 .intro{
+  font-size: 28rpx;
   color: #000000c5;
-  margin-top: 75rpx;
-  margin-left: 10rpx;
-  margin-right: 10rpx;
-  font-size: 16px;
+  margin-top: 48rpx;
+  margin-left: 24rpx;
+  margin-right: 24rpx;
 }
 
 .coach{
-  margin-left: 10rpx;
-  margin-right: 10rpx;
-  color: #000000ec;
-  margin-top: 75rpx;
+  font-size: 28rpx;
+  margin-left: 24rpx;
+  margin-right: 24rpx;
+  color: #424242;
+  margin-top: 48rpx;
+  padding-bottom: 30rpx;
   border-bottom:1px solid rgb(88, 88, 88);
 }
 
 .QnA{
   margin-top: 50rpx;
-  margin-left: 10rpx;
+  margin-left: 30rpx;
   font-size: 30px;
 }
 
@@ -51,18 +56,34 @@
   font-weight: bold;
 }
 
+.qsctn{
+  margin-top: 10rpx;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.qsview{
+  width: 88%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10rpx;
+  background-color: #ebebeb;
+  align-items: center;
+}
 .qs{
+  width: 90%;
   margin-top: 20rpx;
-  font-size: 18px;
+  font-size: 32rpx;
   color: rgba(0, 0, 0, 0.966)
 }
 
 .as{
+  width: 90%;
   margin-top: 15rpx;
-  margin-left: 10rpx;
-  margin-right: 10rpx;
-  font-size: 15px;
-  color: rgba(0, 0, 0, 0.836)
+  margin-bottom: 24rpx;
+  font-size: 28rpx;
+  color: #3f3f3f;
 }
 
 .moreinfo{
@@ -75,17 +96,23 @@
 .lctner{
   display: flex;
   justify-content: center;
+  align-items: center;
+  width: 100%;
+
 }
 
 .levels_ctner{
-  background-color: white;
-  width: 90%;
-  border:1px #000000;
+  margin-top: 14rpx;
+  width: 85%;
+  border:1rpx solid #000000;
+  border-radius: 14rpx;
+  padding-left: 14rpx;
+  padding-bottom: 18rpx;
 }
 
 .levels{
-  font-size:16px;
-  color: #000000ee;
+  font-size:20rpx;
+  color: #727272;
   margin-top: 15rpx;
 }
 

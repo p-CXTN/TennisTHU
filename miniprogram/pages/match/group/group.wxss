@@ -130,7 +130,7 @@
   align-items: center;
 }
 .controlbutton{
-  margin-top: 20rpx;
+  margin: 20rpx auto;
   display: flex;
   align-items: center;
   justify-content: center;

@@ -26,6 +26,7 @@ Page({
     avatarurl:"",
     stuid:"0",
     password:"",
+    wechatid: '',
 
     genderarray:['男/Male','女/Female'],
     genderindex:0,
@@ -39,6 +40,7 @@ Page({
 
   onLoad: function(e){
     var lan = app.globalData.language;
+    const db = wx.cloud.database();
     this.setData({
       language: lan
     })
@@ -130,15 +132,47 @@ Page({
       bhand: temp
     })
   },
+  getwechatid: function (e) {
+    this.setData({
+      wechatid: e.detail.value
+    })
+  },
 
-  submit: function (e) {
+  submit: async function (e) {
     const db = wx.cloud.database();
     var that = this;
-    this.setData({
+    var cont = true;
+    await new Promise((resolve,reject)=>{
+      db.collection('users').where({
+        realname: that.data.realname,
+        stuid: that.data.stuid
+      }).get({
+        success: function(res){
+          console.log(res)
+          if(res.data.length!=0)cont = false;
+          resolve();
+        }
+      })
+    })
+    that.setData({
       nickname: app.globalData.userInfo.nickName,
       avatarurl:app.globalData.userInfo.avatarUrl
     })
-    if (this.data.phone == '0' || this.data.phone == '' || this.data.realname == "真实姓名" || this.data.realname == "" || this.data.school == "" || this.data.school == "未指定" || this.data.department == '' || this.data.department == '未指定')
+    console.log(cont)
+    if(!cont){
+      await new Promise((resolve,reject)=>{
+        wx.showModal({
+          title:that.data.content.modalwarning,
+          content:that.data.content.alreadyreg,
+          showCancel:false,
+          complete:function(res){
+            resolve();
+          }
+        })
+      })
+      return;
+    }
+    if (this.data.wechatid === '' || this.data.phone == '0' || this.data.phone == '' || this.data.realname == "真实姓名" || this.data.realname == "" || this.data.school == "" || this.data.school == "未指定" || this.data.department == '' || this.data.department == '未指定')
     {
       wx.showModal({
         title: that.data.content.modalwarning,
@@ -158,6 +192,7 @@ Page({
           password: that.data.password,
           gender: that.data.gender,
           rating: that.data.rating,
+          wechatid: that.data.wechatid,
           permit: 1,
           phand: that.data.phand,
           bhand: that.data.bhand,

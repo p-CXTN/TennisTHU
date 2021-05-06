@@ -107,9 +107,9 @@ Page({
       if (that.data.found==false) {
         wx.hideLoading({});
         wx.showModal({
-          title: '提示',
-          content: '用户不存在！请注册',
-          confirmText: "去注册",
+          title: that.data.content.modalwarning,
+          content: that.data.content.needregister,
+          confirmText: that.data.content.goregister,
           success: function (e) {
             if (e.cancel) { 
               resolve();
@@ -128,8 +128,8 @@ Page({
     if(that.data.found){
       wx.hideLoading({});
       wx.showModal({
-      title: '提示',
-      content: '请在新页面重新登陆！Please log in again!',
+      title: that.data.content.modalhint,
+      content: that.data.content.loginagain,
       showCancel: false,
       complete (res){
         wx.reLaunch({
@@ -143,5 +143,52 @@ Page({
     wx.reLaunch({
       url: '../getUserInfo/getUserInfo',
     })
-  }
+  },
+  forgetpwd: function(){
+    wx.navigateTo({
+      url: '../resetPwd/resetPwd',
+    })
+  },
+  changeLanguage: function (e) {
+    var version = this.data.language;
+    if (version == "中文") {
+      app.globalData.language="英文";
+      if (this.data.gender == "男子球员")
+      {
+        this.setData({
+          language: "英文",
+          gender: "Man Player"
+        })
+      }
+      else if (this.data.gender == "女子球员")
+      {
+        this.setData({
+          language: "英文",
+          gender: "Woman Player"
+        })
+      }
+      else
+      this.setData({
+        language: "英文"
+      })
+    } else {
+      app.globalData.language = "中文";
+      if(this.data.gender=="Man Player")
+      {
+        this.setData({
+          language: "中文",
+          gender: "男子球员"
+        })
+      }
+      else
+      {
+        this.setData({
+          language: "中文",
+          gender: "女子球员"
+        })
+      }
+    }
+    var lastLanuage = this.data.language;
+    this.getContent(lastLanuage);
+  },
 })

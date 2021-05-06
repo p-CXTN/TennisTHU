@@ -119,11 +119,12 @@ Component({
     toleft:function(){
       var temp = this.data.multiIndex;
       if(this.data.multiIndex[1]==0){
-        switch(this.data.multiIndex[0]){
+        /*switch(this.data.multiIndex[0]){
           case 0: temp[1] = 15;break;
           case 1: temp[1] = 8;break;
           case 2: temp[1] = 5;break;
-        }
+        }*/
+        temp[1] = this.data.multiArray[1].length - 1;
       }
       else {
         temp[1] = temp[1] - 1;
@@ -141,11 +142,13 @@ Component({
     },
     toright:function(){
       var temp = this.data.multiIndex;
-      switch(temp[0]){
+      /*switch(temp[0]){
         case 0:if(temp[1]==15)temp[1]=0;else temp[1]++;break;
         case 1:if(temp[1]==8)temp[1]=0;else temp[1]++;break;
         case 2:if(temp[1]==5)temp[1]=0;else temp[1]++;break;
-      }
+      }*/
+      if(temp[1] == this.data.multiArray[1].length - 1)temp[1]=0;
+      else temp[1]++;
       var str = String(temp[0]+1);
       str += temp[1]>=9?String(temp[1]+1):('0'+String(temp[1]+1))
       this.setData({
@@ -207,11 +210,12 @@ Component({
         that.data.dataList2.sort(that.compare);
         var crev=0;
         var len = j;let ii=0;
+        var revlist = [];
         while(ii<len)
         {
           let jj=0;
           var currentrev = that.data.dataList2[ii].rev;
-
+          revlist[crev] = '#' + that.data.dataList2[ii].rev.slice(1,3);
           for(;ii<len && that.data.dataList2[ii].rev==currentrev;ii++,jj++)
           {
             var obj = that.data.dataList2[ii];
@@ -223,6 +227,11 @@ Component({
           }
           crev++;
         }
+        console.log(revlist)
+        var multiArray = [['紫荆', '综体东','综体西'],revlist];
+        that.setData({
+          multiArray: multiArray
+        })
         wx.hideLoading({
           success: (res) => {resolve();},
         })
@@ -270,6 +279,7 @@ Component({
             that.setData({
               nomatch:true
             })
+            wx.hideLoading({});
             return;
           }
           else {

@@ -8,10 +8,14 @@ Page({
    * 页面的初始数据
    */
   data: {
+    language: "中文",
     name:"",
     stuid:"",
     phoneno:"",
     newpwd:"",
+    forgotpwd: false,
+    oldpwd: "",
+    userinfo: {},
   },
 
   /**
@@ -36,6 +40,12 @@ Page({
       })
     }
   },
+  forgetpwd: function(res){
+    this.setData({
+      forgotpwd: true
+    })
+    console.log(this.data.forgotpwd)
+  },
   syncname: function(e){
     var that = this;
     if(e.detail.value != "")
@@ -57,6 +67,13 @@ Page({
       phoneno: e.detail.value
     })
   },
+  syncoldpwd: function(e){
+    var that = this;
+    if(e.detail.value != "")
+    that.setData({
+      oldpwd: e.detail.value
+    })
+  },
   syncpwd: function(e){
     var that = this;
     if(e.detail.value != "")
@@ -70,23 +87,86 @@ Page({
     const db = wx.cloud.database();
     var that = this;
     console.log(that.data.name,that.data.stuid,that.data.phoneno,that.data.newpwd,app.globalData.nickName,app.globalData.avatarUrl)
+    var proceed = false;
     await new Promise((resolve,reject)=>{
-      db.collection('resetPwdReq').add({
-        data:{
+      if(that.data.forgotpwd){
+        db.collection('users').where({
           realname: that.data.name,
           stuid: that.data.stuid,
-          phoneno: that.data.phoneno,
-          newpwd: that.data.newpwd,
-          nickName: app.globalData.nickName,
-          avatarUrl: app.globalData.avatarUrl
+          phone: that.data.phoneno
+        }).get({
+          success:function(res){
+            if(res.data.length == 0){
+              wx.hideLoading({});
+              wx.showModal({
+                title: that.data.content.modalwarning,
+                content: that.data.content.usernotfound,
+                showCancel:false,
+                success: function(res){
+                  resolve();
+                }
+              })
+            } else {
+              proceed = true;
+              that.setData({
+                userinfo: res.data[0]
+              })
+              resolve();
+            }
+          }
+        })
+      } else {
+        if(app.globalData.logged == false){
+          wx.hideLoading({})
+          wx.showModal({
+            title: that.data.content.modalwarning,
+            content: that.data.content.reqlogin,
+            showCancel: false,
+            success: function(res){
+              resolve();
+            }
+          })
+        } else {
+          db.collection('users').where({
+            nickname: app.globalData.nickName,
+            avatarurl: app.globalData.avatarUrl,
+            password: that.data.oldpwd
+          }).get({
+            success: function(res){
+              if(res.data.length == 0){
+                wx.hideLoading({});
+                wx.showModal({
+                  title: that.data.content.modalwarning,
+                  content: that.data.content.pwderror,
+                  showCancel:false,
+                  success: function(res){
+                    resolve();
+                  }
+                })
+              } else {
+                proceed = true;
+                that.setData({
+                  userinfo: res.data[0]
+                })
+                resolve();
+              }
+            }
+          })
+        }
+      }
+    }).catch((e) => {})
+    console.log(proceed)
+    if(proceed == false)return;
+    await new Promise((resolve,reject)=>{
+      db.collection('users').doc(that.data.userinfo._id).update({
+        data:{
+          password: that.data.newpwd
         },
         success: function(res){
-          wx.hideLoading({
-            success: (res) => {},
-          })
+          wx.hideLoading({});
           wx.showModal({
-            title: "提示",
-            content: "申请提交成功",
+            title: that.data.content.modalhint,
+            content: that.data.content.resetpwdsuccess,
             showCancel: false,
             complete (res){
               resolve();

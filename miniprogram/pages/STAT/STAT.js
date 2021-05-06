@@ -3,41 +3,49 @@ const app = getApp();
 let QR = require("../../utils/qrcode.js")
 var chinese = require("../../utils/Chinese.js")
 var english = require("../../utils/English.js");
-const { content } = require("../../utils/Chinese.js");
+var utiltime = require('../../utils/Date.js');
+//const { content } = require("../../utils/Chinese.js");
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    flag:false,//member OK
-    rflag:false,//haven't submitted application
-    flag2:false,//submitted but invalid
+    flag: false,//member OK
+    rflag: false,//haven't submitted application
+    flag2: false,//submitted but invalid
     language: "中文",
-    imagePath: "../../images/qrcode.jpg",
+    imagePath: "../../images/errorQR.png",
     maskHidden: true,
     realname: "",
     avatarUrl: "",
     classdate: 0,
     actionpoints: 0,
+    activitylist: {},
+    memberinfo: {},
+    placesleft: {},
+    showQR: false,
+    intervalset: "",
+    returndisable: false,
+    signintext: "请给教练或网协工作人员扫描上面的二维码签到",
+  },
+  preventTouchMove: function () {
   },
 
-  joinnow:function(e){
+  joinnow: function (e) {
     var that = this;
-    if(app.globalData.logged==true)
-    {
+    if (app.globalData.logged == true) {
       wx.navigateTo({
         url: '../joinSTAT/joinSTAT',
       })
     }
-    else
-    {
+    else {
       wx.showModal({
         title: that.data.content.modalwarning,
         content: that.data.content.reqlogin,
-        showCancel:false,
+        showCancel: false,
         confirmText: that.data.content.confirmtext,
-        success:function(res){
+        success: function (res) {
           wx.reLaunch({
             url: '../index/index',
           })
@@ -57,7 +65,7 @@ Page({
       })
     }
   },
-  knowmore: function(e){
+  knowmore: function (e) {
     wx.navigateTo({
       url: '../STATinfo/STATinfo',
     })
@@ -102,11 +110,271 @@ Page({
     }
     return size;
   },
-    /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
 
+  compare: function (a, b) {
+    if (parseInt(a.month) == parseInt(b.month)) return parseInt(a.day) - parseInt(b.day);
+    return parseInt(a.month) - parseInt(b.month);
+  },
+  loadactivities: function () {
+    const db = wx.cloud.database();
+    var that = this;
+    db.collection('activities').get({
+      success: async function (res) {
+        await res.data.sort(that.compare);
+        var j = 0;
+        var activitylist = {};
+        var today = {
+          month: utiltime.formatMonth(new Date()),
+          day: utiltime.formatDay(new Date())
+        }
+        for (var i = 1; i <= 16; i++) {
+          if (that.compare(today, res.data[i - 1]) > 0) {
+            continue;
+          }
+          activitylist[j++] = res.data[i - 1];
+        }
+        wx.hideLoading({});
+        that.setData({
+          activitylist: activitylist
+        })
+      }
+    })
+  },
+  actsignup: function (e) {
+    const db = wx.cloud.database();
+    var that = this;
+    if (that.data.actionpoints <= 0) {
+      wx.showModal({
+        title: that.data.content.modalwarning,
+        content: "可参加活动数不足，请先取消报名不能参加的活动！",
+        showCancel: false,
+        success: function (res) {
+          return;
+        }
+      })
+    } else if (that.data.placesleft[e.currentTarget.id] <= 0) {
+      wx.showModal({
+        title: that.data.content.modalwarning,
+        content: "所选择活动没有剩余名额，请与其它会员交换活动时间，并等待对方取消报名！",
+        showCancel: false,
+        success: function (res) {
+          return;
+        }
+      })
+    } else {
+      wx.showLoading({
+        title: 'Loading',
+      })
+      var memberinfotemp = that.data.memberinfo;
+      var placesleft = that.data.placesleft;
+      if (!memberinfotemp.z_act[parseInt(e.currentTarget.id)]) {
+        memberinfotemp.z_act[parseInt(e.currentTarget.id)] = true;
+        memberinfotemp.actionpoints = memberinfotemp.actionpoints - 1;
+        placesleft[parseInt(e.currentTarget.id)] = placesleft[parseInt(e.currentTarget.id)] - 1;
+        that.setData({
+          memberinfo: memberinfotemp,
+          actionpoints: that.data.actionpoints - 1,
+          placesleft: placesleft
+        })
+        var z_act = that.data.memberinfo.z_act;
+        var actionpoints = that.data.memberinfo.actionpoints;
+        var string = that.data.memberinfo._id;
+        db.collection('globalData').doc('XXZMNfdsX1oQeu3u').update({
+          data: {
+            placesleft: placesleft
+          },
+          success: function (res) {
+            db.collection(app.globalData.groupName).doc(string).update({
+              data: {
+                z_act: z_act,
+                actionpoints: actionpoints
+              },
+              success: function (res) {
+                wx.hideLoading({});
+                wx.showModal({
+                  title: that.data.content.modalhint,
+                  content: "报名成功！",
+                  showCancel: false,
+                  success(res) {
+                    return;
+                  }
+                })
+              }
+            })
+          }
+        })
+      } else {
+        wx.hideLoading({});
+        wx.showModal({
+          title: that.data.content.modalwarning,
+          content: "内部错误，您已经报名此活动",
+          showCancel: false,
+          success: function (res) {
+            return;
+          }
+        })
+      }
+    }
+
+  },
+  cancelsignup: async function (e) {
+    var that = this;
+    const db = wx.cloud.database();
+    wx.showModal({
+      title: that.data.content.modalwarning,
+      content: "您正在取消报名该活动，确认吗？",
+      showCancel: true,
+      success: async function (res) {
+        if (res.confirm) {
+          wx.showLoading({
+            title: 'Loading',
+          })
+          var placesleft = that.data.placesleft;
+          var memberinfotemp = that.data.memberinfo;
+          if (memberinfotemp.z_act[parseInt(e.currentTarget.id)]) {
+            memberinfotemp.z_act[parseInt(e.currentTarget.id)] = false;
+            memberinfotemp.actionpoints = memberinfotemp.actionpoints + 1;
+            placesleft[parseInt(e.currentTarget.id)] = placesleft[parseInt(e.currentTarget.id)] + 1;
+            that.setData({
+              memberinfo: memberinfotemp,
+              actionpoints: that.data.actionpoints + 1,
+              placesleft: placesleft
+            })
+            var z_act = that.data.memberinfo.z_act;
+            var actionpoints = that.data.memberinfo.actionpoints;
+            var string = that.data.memberinfo._id
+            await db.collection('globalData').doc('XXZMNfdsX1oQeu3u').update({
+              data: {
+                placesleft: placesleft
+              }
+            })
+            db.collection(app.globalData.groupName).doc(string).update({
+              data: {
+                z_act: z_act,
+                actionpoints: actionpoints
+              },
+              success: function (res) {
+                wx.hideLoading({});
+                wx.showModal({
+                  title: that.data.content.modalhint,
+                  content: "取消报名成功！",
+                  showCancel: false,
+                  success(res) {
+                    return;
+                  }
+                })
+              }
+            })
+          }
+          else wx.showModal({
+            title: that.data.content.modalwarning,
+            content: "内部错误，您没有报名此活动",
+            showCancel: false,
+            success: function (res) {
+              return;
+            }
+          })
+        } else if (res.cancel) {
+          return;
+        }
+      }
+    })
+  },
+  hideQR: function (e) {
+    var that = this;
+    clearInterval(that.data.intervalset);
+    that.setData({
+      showQR: false,
+      returndisable: false,
+      signintext: "请给教练或网协工作人员扫描上面的二维码签到"
+    })
+  },
+  clearinterval: function () {
+    var that = this;
+    const db = wx.cloud.database();
+    clearInterval(that.data.intervalset);
+    that.setData({
+      imagePath: "../../images/scanned.png",
+      returndisable: true,
+      signintext: "扫码成功，请稍等"
+    })
+    db.collection(app.globalData.groupName).doc(that.data.memberinfo._id).update({
+      data: {
+        scanned: false
+      }
+    })
+    setTimeout(() => {
+      that.hideQR();
+      that.onPullDownRefresh();
+    }, 3000);
+  },
+  actsignin: async function (e) {
+    var that = this;
+    const db = wx.cloud.database();
+    that.setData({
+      maskHidden: false,
+    });
+    await new Promise((resolve, reject) => {
+      wx.hideToast()
+      var size = that.setCanvasSize();
+      //绘制二维码
+      var qrstring = "Status=OK;UserOpenID=";
+      qrstring += that.data.memberinfo._openid;
+      qrstring += ";SignInType=NormalActivity;ActivityNum="
+      qrstring += parseInt(e.currentTarget.id) < 10 ? ("0" + parseInt(e.currentTarget.id)) : parseInt(e.currentTarget.id);
+      qrstring += ";SystemTime="
+      qrstring += utiltime.formatTime(new Date());
+      qrstring += "."
+      that.createQrCode(qrstring, "mycanvas", size.w, size.h);
+      that.setData({
+        maskHidden: true
+      });
+      resolve();
+    }).catch((e) => { })
+    that.setData({
+      showQR: true
+    })
+
+    that.data.intervalset = setInterval(
+      async function () {
+        db.collection(app.globalData.groupName).doc(that.data.memberinfo._id).get({
+          success: function (res) {
+            if (res.data.scanned) {
+              that.clearinterval();
+            }
+          }
+        })
+      }, 2000
+    )
+  },
+
+  subscribe: function () {
+    var that = this;
+    wx.showModal({
+      title: that.data.content.modalhint,
+      content: that.data.content.subscribehint,
+      showCancel: true,
+      success: function (res) {
+        if (res.cancel) {
+          return;
+        } else if (res.confirm) {
+          wx.requestSubscribeMessage({
+            tmplIds: ['DkpjVlo5Yb69uZzKSOfGeDPAkv_vPmbllN0y4W4W7s8'],
+            complete: function (res) {
+              console.log(res);
+            }
+          })
+        }
+      }
+    })
+  },
+  /**
+ * 生命周期函数--监听页面加载
+ */
+  onLoad: async function (options) {
+    wx.showLoading({
+      title: '',
+    })
     const db = wx.cloud.database();
     var that = this;
     var nickn = app.globalData.nickName;
@@ -116,35 +384,42 @@ Page({
       avatarUrl: avturl
     })
     db.collection(app.globalData.groupName).where({
-      nickname: nickn,
-      avatarurl: avturl
+      realname: app.globalData.realname
+      //nickname: nickn,
+      //avatarurl: avturl
     }).get({
-      success: function(res){
-        console.log(res)
-        if(res.data.length == 0)
-        {
+      success: function (res) {
+        if (res.data.length == 0) {
           that.setData({
             flag: false,
             rflag: true
           })
+          wx.hideLoading({});
         }
-        else if(res.data[0].valid==true)
-        {
+        else if (res.data[0].valid == true) {
           that.setData({
             flag: true,
             rflag: false,
             classdate: res.data[0].classdate,
-            actionpoints: res.data[0].actionpoints
+            actionpoints: res.data[0].actionpoints,
+            memberinfo: res.data[0]
           })
+          that.loadactivities();
         }
-        else
-        {
+        else {
+          wx.hideLoading({});
           that.setData({
-            flag2: true,
-            classdate: res.data[0].classdate,
-            actionpoints: res.data[0].actionpoints
+            flag2: true
           })
         }
+      }
+    })
+
+    db.collection('globalData').doc('XXZMNfdsX1oQeu3u').get({
+      success: function (res) {
+        that.setData({
+          placesleft: res.data.placesleft
+        })
       }
     })
 
@@ -155,7 +430,72 @@ Page({
     var lastLanuage = that.data.language;
     that.getContent(lastLanuage);
   },
-  tempbuttontap: function (){
+
+  onPullDownRefresh: async function (options) {
+    var that = this;
+    if (!that.data.flag) {
+      wx.stopPullDownRefresh({
+        success: (res) => { return; },
+      })
+    }
+    const db = wx.cloud.database();
+    var nickn = app.globalData.nickName;
+    var avturl = app.globalData.avatarUrl;
+    await new Promise((resolve, reject) => {
+      db.collection(app.globalData.groupName).where({
+        nickname: nickn,
+        avatarurl: avturl
+      }).get({
+        success: function (res) {
+          if (res.data.length == 0) {
+            that.setData({
+              flag: false,
+              rflag: true,
+              flag2: false
+            })
+            resolve();
+          }
+          else if (res.data[0].valid == true) {
+            that.setData({
+              flag: true,
+              rflag: false,
+              flag2: false,
+              classdate: res.data[0].classdate,
+              actionpoints: res.data[0].actionpoints,
+              memberinfo: res.data[0]
+            })
+            that.loadactivities();
+            resolve();
+          }
+          else {
+            that.setData({
+              flag: false,
+              rflag: false,
+              flag2: true
+            })
+            resolve();
+          }
+        }
+      })
+    }).catch((e) => { })
+
+
+    await new Promise((resolve, reject) => {
+      db.collection('globalData').doc('XXZMNfdsX1oQeu3u').get({
+        success: function (res) {
+          that.setData({
+            placesleft: res.data.placesleft
+          })
+          resolve();
+        }
+      })
+    }).catch((e) => { })
+
+    wx.stopPullDownRefresh({
+      success: (res) => { return; },
+    })
+  },
+  tempbuttontap: function () {
     var that = this;
     that.setData({
       maskHidden: false,
@@ -173,12 +513,5 @@ Page({
       });
       clearTimeout(st);
     }, 10)
-  },
-  temp2buttontap: function(){
-    wx.scanCode({
-      success: function(res){
-        console.log(res)
-      }
-    })
   }
 })

@@ -1,4 +1,5 @@
 /* miniprogram/pages/signup/signup.wxss */
+@import "../index//index.wxss";
 navigator{
   display:inline;
 }
@@ -41,33 +42,165 @@ navigator{
   width: 50%;
   float: left;
 }
-
-.signupc{
-  width:50%;
-  float: right;
-  color: #fff;
-  background-color: rgba(133, 55, 161, 0.788);
+.signedupview{
+  width: 100%;
+  height: 36rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.img-wrapper{
-  margin-top: 350rpx;
+.signupbuttonview{
+  width: 100%;
+  height: 72rpx;
+  margin-top: 20rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.signupc{
+  width: 46%;
+  height: 64rpx;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 32rpx;
+  background-color: #8537A1;
+  border: 1rpx solid #8537A1;
+}
+.signupchv{
+  background-color: #dbdbdb;
+  color: #646464;
+}
+.signedupb{
+  height: 24rpx;
+  width: 76rpx;
+  font-size: 14rpx;
+  color: #18ec18;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12rpx;
+  border: 1rpx solid #15cc15;
+  padding: 2rpx;
+}
+button[class="signedup"]::after {
+  border: 0;
+  color: #18ec18;
+}
+.signupcc{
+  width: 46%;
+  height: 64rpx;
+  color: #b91818;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 32rpx;
+  border: 1rpx solid #b91818;
+}
+.signupcchv{
+  background-color: #b91818;
+  color: #fdfdfd;
+}
+.img-wrapperr{
+  margin-top: 120rpx;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 300rpx;
   display: flex;
+  flex-direction: column;
 }
-.img{
+.imgr{
+  margin-top:200rpx;
   display: flex;
   justify-content: center;
   align-items: center;
   height:100%;
   width:300rpx;
 }
-.txt{
+.txtr{
   float:left;
   margin-top: 15px;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.match{
+  margin-top: 90rpx;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.match .matchtitleintro{
+  width: 80%;
+  font-weight: 600;
+}
+.match .matchtitle{
+  width: 90%;
+  font-size: 46rpx;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.match .matchtime{
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+.match .matchtime .matchdate{
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color:#b1b1b1;
+}
+.match .matchtime .starttime{
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color:#b1b1b1;
+}
+.introctn{
+  margin-top: 30rpx;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.introview{
+  background-color: #c4c4c4;
+  padding: 20rpx;
+  border-radius: 20rpx;
+  width: 82%;
+}
+
+.rulesview{
+  background-color: #ebebeb;
+  padding: 20rpx;
+  border-radius: 20rpx;
+  width: 82%;
+}
+.guidetexts .drawtext{
+  width:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #757575;
+}
+.guidetexts{
+  margin-top: 5rpx;
+  margin-bottom: 5rpx;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

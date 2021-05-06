@@ -1,0 +1,60 @@
+<!--miniprogram/pages/checkin/checkin.wxml-->
+<!--
+<view wx:if="{{rflag}}">
+  <view class="nopermitimg-wrapper">
+    <view class='nopermitimg'>
+      <image src="../../images/warning.png" mode="aspectFit" />
+    </view>
+  </view>
+  <view class='nopermittxt'>
+    <text>{{content.nopermitforcheckin}}</text>
+  </view>
+</view>-->
+
+<view wx:if="{{flag}}">
+  <view class="input-row">
+    <view class="input-guide">签到人员身份</view>
+    <picker style="margin-left:36rpx" range="{{subjectarray}}" bindchange='getsubject'>{{subjectarray[subjectindex]}}
+    </picker>
+  </view>
+
+  <view class="controlline">
+    <checkbox-group bindchange="checkboxchange" class="checkbox">
+      <checkbox value="1" checked="{{continuecheckin}}">连续签到</checkbox>
+    </checkbox-group>
+
+    <view class="loginBtnView">
+      <button class="loginBtn" bindtap='scanQR' hover-class="loginBtnhover">扫码签到</button>
+    </view>
+  </view>
+
+  <view wx:if="{{datalist.length!=0}}">
+    <view class="datalistview">已签到列表：</view>
+    <block wx:for='{{datalist}}' wx:key='num' wx:for-item="iscanee">
+      <view class="list_item">
+        <view class="colorbar">
+        </view>
+
+        <view class="datalistdata">
+
+          <view class="txtctner">
+            <view class="scaneename">{{iscanee.scaneename}}</view>
+            <view class="classdate">周{{iscanee.classdate==4?"四":"六"}}
+              {{iscanee.rating=='A'?"初级班会员":(iscanee.rating=='B'?"中级班会员":(iscanee.rating=='C'?"高级班会员":"无需教练会员"))}}
+            </view>
+          </view>
+          <view class="txtctner2">
+            <view class="act1">{{actdata[iscanee.activitynum-1].name}}</view>
+            <view class="act2">签到成功</view>
+          </view>
+          <view class="txtctner3">
+            <view class="chkintime">签到时间：{{iscanee.scantime}}</view>
+          </view>
+        </view>
+
+        <view class="colorbar">
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

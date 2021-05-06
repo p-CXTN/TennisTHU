@@ -31,6 +31,8 @@
 .tab-active{
   color: #8537a1;
   font-weight: bold;
+  border-bottom-style: inherit;
+  border-bottom: 3rpx solid #8537a1;
 }
 
 .content-wrapper{
