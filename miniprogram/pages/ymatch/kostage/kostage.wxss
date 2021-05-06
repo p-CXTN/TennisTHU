@@ -1,0 +1,133 @@
+/* pages/ymatch/kostage/kostage.wxss */
+@import"../rrstage/rrstage.wxss";
+.container{
+  width:100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.columns{
+  width:96%;
+  height: 990rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top:20rpx;
+}
+.columns .column{
+  height: 100%;
+  width: 75rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-left:1rpx;
+}
+.placeholderp{
+  height: 66rpx;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 21rpx;
+  font-weight: 600;
+}
+.placeholderrdashed{
+  border-right:1rpx dashed #4e4e4e;
+  height: 66rpx;
+  width: 74rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 21rpx;
+  font-weight: 600;
+}
+.placeholderbdashed{
+  border-bottom:1rpx dashed #4e4e4e;
+  height: 66rpx;
+  width: 75rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 21rpx;
+  font-weight: 600;
+}
+.placeholderrbdashed{
+  border-right:1rpx dashed #4e4e4e;
+  border-bottom:1rpx dashed #4e4e4e;
+  height: 66rpx;
+  width: 74rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 21rpx;
+  font-weight: 600;
+}
+.placeholderbsolid{
+  border-bottom:1rpx solid #4e4e4e;
+  height: 66rpx;
+  width: 75rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 21rpx;
+  font-weight: 600;
+}
+.placeholderrsolid{
+  border-right:1rpx solid #4e4e4e;
+  height: 66rpx;
+  width: 74rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 21rpx;
+  font-weight: 600;
+}
+.placeholderrsolidbdashed{
+  border-right:1rpx solid #4e4e4e;
+  border-bottom:1rpx dashed #4e4e4e;
+  height: 66rpx;
+  width: 74rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 21rpx;
+  font-weight: 600;
+}
+.placeholderrbsolid{
+  border-right:1rpx solid #4e4e4e;
+  border-bottom:1rpx solid #4e4e4e;
+  height: 66rpx;
+  width: 74rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 21rpx;
+  font-weight: 600;
+}
+.placeholderrdashedbsolid{
+  border-right:1rpx dashed #4e4e4e;
+  border-bottom:1rpx solid #4e4e4e;
+  height: 66rpx;
+  width: 74rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 21rpx;
+  font-weight: 600;
+}
+.enterscorebtn{
+  width:96%;
+  height:96%;
+  border-radius: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  font-size: 20rpx;
+  font-weight: 600;
+}
+.enterscorebtn::after{
+  border: 0;
+}

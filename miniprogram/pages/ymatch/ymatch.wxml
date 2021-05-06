@@ -1,0 +1,14 @@
+<!--miniprogram/pages/ymatch/ymatch.wxml-->
+<view class='tab-wrapper'>
+  <view id='tab1' class='tab-0 {{currentTab === 1 ? "tab-active" : ""}}' bindtap='switchTab'>
+    {{content.tab_rrstage}}</view>
+  <view id='tab2' class='tab-0 {{currentTab === 2 ? "tab-active" : ""}}' bindtap='switchTab'>
+    {{content.tab_kostage}}</view>
+</view>
+
+<view class='content-wrapper' wx:if='{{currentTab === 1}}'>
+  <rrstage language="{{language}}" />
+</view>
+<view class='content-wrapper' wx:if='{{currentTab === 2}}'>
+  <kostage language="{{language}}" />
+</view>

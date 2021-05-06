@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "kostage": "./kostage/kostage",
+    "rrstage": "./rrstage/rrstage"
+  }
+}

@@ -1,0 +1,187 @@
+<!--pages/ymatch/kostage/kostage.wxml-->
+<view class="pg-heading">
+  <view class="lrbutton">
+    <button class="lrbtn" bindtap="toleft">
+      <image class="lrimg" src="../../../images/ToLeft.png" mode="aspectFit" />
+    </button>
+  </view>
+
+  <view class="section">
+    <picker mode="selector" bindchange="bindPickerChange" value="{{groupIndex}}" range="{{groupList}}">
+      <view class="picker up-border down-border">
+        {{groupList[groupIndex]}}
+      </view>
+    </picker>
+  </view>
+
+  <view class="lrbutton">
+    <button class="lrbtn" bindtap="toright">
+      <image class="lrimg" src="../../../images/ToRight.png" mode="aspectFit" />
+    </button>
+  </view>
+</view>
+
+<view class="container">
+  <view class="placeholder"></view>
+  <view class="hint">操作方式：比赛结束后，点击胜者/负者应处的位置录比分</view>
+  <view class="hint">一人操作即可，比分提交后不能更改</view>
+  <view class="columns">
+    <view class="column">
+      <view class="placeholderp"></view>
+      <view class="placeholderp"></view>
+      <view class="placeholderp"></view>
+      <view class="placeholderp"></view>
+      <view class="placeholderrdashed"></view>
+      <view class="placeholderrdashed"></view>
+      <view class="placeholderrdashed"></view>
+      <view class="placeholderrbdashed"><button id="3-7" class="enterscorebtn" bindtap="enterscore">{{kkdata[groupIndex].player[3][7]}}</button></view>
+      <view class="placeholderrdashed"></view>
+      <view class="placeholderrdashed"></view>
+      <view class="placeholderrdashed"></view>
+      <view class="placeholderrdashed"></view>
+      <view class="placeholderp"></view>
+      <view class="placeholderp"></view>
+      <view class="placeholderp"></view>
+    </view>
+    <view class="column">
+      <view class="placeholderp"></view>
+      <view class="placeholderp"></view>
+      <view class="placeholderrdashed"></view>
+      <view class="placeholderrbdashed"><button id="2-6" class="enterscorebtn" bindtap="enterscore">{{kkdata[groupIndex].player[2][6]}}</button></view>
+      <view class="placeholderrdashed"></view>
+      <view class="placeholderrdashed"></view>
+      <view class="placeholderp"></view>
+      <view class="placeholderbdashed"><button id="3-3" class="enterscorebtn" bindtap="enterscore">{{kkdata[groupIndex].player[3][3]}}</button></view>
+      <view class="placeholderp"></view>
+      <view class="placeholderp"></view>
+      <view class="placeholderrdashed"></view>
+      <view class="placeholderrbdashed"><button id="2-7" class="enterscorebtn" bindtap="enterscore">{{kkdata[groupIndex].player[2][7]}}</button></view>
+      <view class="placeholderrdashed"></view>
+      <view class="placeholderrdashed"></view>
+      <view class="placeholderp"></view>
+    </view>
+    <view class="column">
+      <view class="placeholderp"></view>
+      <view class="placeholderbdashed"><button id="1-4" class="enterscorebtn" bindtap="enterscore">{{kkdata[groupIndex].player[1][4]}}</button></view>
+      <view class="placeholderp"></view>
+      <view class="placeholderbsolid"><button id="2-2" class="enterscorebtn" bindtap="enterscore">{{kkdata[groupIndex].player[2][2]}}</button></view>
+      <view class="placeholderrsolid"></view>
+      <view class="placeholderrsolidbdashed"><button id="1-5" class="enterscorebtn" bindtap="enterscore">{{kkdata[groupIndex].player[1][5]}}</button></view>
+      <view class="placeholderrsolid"></view>
+      <view class="placeholderrbsolid"><button id="3-5" class="enterscorebtn" bindtap="enterscore">{{kkdata[groupIndex].player[3][5]}}</button></view>
+      <view class="placeholderrsolid"></view>
+      <view class="placeholderrsolidbdashed"><button id="1-6" class="enterscorebtn" bindtap="enterscore">{{kkdata[groupIndex].player[1][6]}}</button></view>
+      <view class="placeholderrsolid"></view>
+      <view class="placeholderrbsolid"><button id="2-3" class="enterscorebtn" bindtap="enterscore">{{kkdata[groupIndex].player[2][3]}}</button></view>
+      <view class="placeholderp"></view>
+      <view class="placeholderbdashed"><button id="1-7" class="enterscorebtn" bindtap="enterscore">{{kkdata[groupIndex].player[1][7]}}</button></view>
+      <view class="placeholderp"></view>
+    </view>
+    <view class="column">
+      <view class="placeholderp"></view>
+      <view class="placeholderrbdashed"></view>
+      <view class="placeholderrdashed"></view>
+      <view class="placeholderp"></view>
+      <view class="placeholderp"></view>
+      <view class="placeholderrbdashed"></view>
+      <view class="placeholderrdashed"></view>
+      <view class="placeholderbsolid"><button id="3-1" class="enterscorebtn" bindtap="enterscore">{{kkdata[groupIndex].player[3][1]}}</button></view>
+      <view class="placeholderp"></view>
+      <view class="placeholderrbdashed"></view>
+      <view class="placeholderrdashed"></view>
+      <view class="placeholderp"></view>
+      <view class="placeholderp"></view>
+      <view class="placeholderrbdashed"></view>
+      <view class="placeholderrdashed"></view>
+    </view>
+    <view class="column">
+      <view class="placeholderbsolid">{{kkdata[groupIndex].player[0][0]}}</view>
+      <view class="placeholderrsolid"></view>
+      <view class="placeholderrbsolid">{{kkdata[groupIndex].player[0][1]}}</view>
+      <view class="placeholderp"></view>
+      <view class="placeholderbsolid">{{kkdata[groupIndex].player[0][2]}}</view>
+      <view class="placeholderrsolid"></view>
+      <view class="placeholderrbsolid">{{kkdata[groupIndex].player[0][3]}}</view>
+      <view class="placeholderp"></view>
+      <view class="placeholderbsolid">{{kkdata[groupIndex].player[0][4]}}</view>
+      <view class="placeholderrsolid"></view>
+      <view class="placeholderrbsolid">{{kkdata[groupIndex].player[0][5]}}</view>
+      <view class="placeholderp"></view>
+      <view class="placeholderbsolid">{{kkdata[groupIndex].player[0][6]}}</view>
+      <view class="placeholderrsolid"></view>
+      <view class="placeholderrbsolid">{{kkdata[groupIndex].player[0][7]}}</view>
+    </view>
+    <view class="column">
+      <view class="placeholderp"></view>
+      <view class="placeholderbsolid"></view>
+      <view class="placeholderp"></view>
+      <view class="placeholderp"></view>
+      <view class="placeholderrdashed"></view>
+      <view class="placeholderrdashedbsolid"></view>
+      <view class="placeholderrdashed"></view>
+      <view class="placeholderrbdashed"><button id="3-6" class="enterscorebtn" bindtap="enterscore">{{kkdata[groupIndex].player[3][6]}}</button></view>
+      <view class="placeholderrdashed"></view>
+      <view class="placeholderrdashedbsolid"></view>
+      <view class="placeholderrdashed"></view>
+      <view class="placeholderrdashed"></view>
+      <view class="placeholderp"></view>
+      <view class="placeholderbsolid"></view>
+      <view class="placeholderp"></view>
+    </view>
+    <view class="column">
+      <view class="placeholderp"></view>
+      <view class="placeholderbsolid"><button id="1-0" class="enterscorebtn" bindtap="enterscore">{{kkdata[groupIndex].player[1][0]}}</button></view>
+      <view class="placeholderrsolid"></view>
+      <view class="placeholderrsolidbdashed"><button id="2-4" class="enterscorebtn" bindtap="enterscore">{{kkdata[groupIndex].player[2][4]}}</button></view>
+      <view class="placeholderrsolid"></view>
+      <view class="placeholderrbsolid"><button id="1-1" class="enterscorebtn" bindtap="enterscore">{{kkdata[groupIndex].player[1][1]}}</button></view>
+      <view class="placeholderp"></view>
+      <view class="placeholderbdashed"><button id="3-2" class="enterscorebtn" bindtap="enterscore">{{kkdata[groupIndex].player[3][2]}}</button></view>
+      <view class="placeholderp"></view>
+      <view class="placeholderbsolid"><button id="1-2" class="enterscorebtn" bindtap="enterscore">{{kkdata[groupIndex].player[1][2]}}</button></view>
+      <view class="placeholderrsolid"></view>
+      <view class="placeholderrsolidbdashed"><button id="2-5" class="enterscorebtn" bindtap="enterscore">{{kkdata[groupIndex].player[2][5]}}</button></view>
+      <view class="placeholderrsolid"></view>
+      <view class="placeholderrbsolid"><button id="1-3" class="enterscorebtn" bindtap="enterscore">{{kkdata[groupIndex].player[1][3]}}</button></view>
+      <view class="placeholderp"></view>
+    </view>
+    <view class="column">
+      <view class="placeholderp"></view>
+      <view class="placeholderp"></view>
+      <view class="placeholderp"></view>
+      <view class="placeholderbsolid"><button id="2-0" class="enterscorebtn" bindtap="enterscore">{{kkdata[groupIndex].player[2][0]}}</button></view>
+      <view class="placeholderrsolid"></view>
+      <view class="placeholderrsolid"></view>
+      <view class="placeholderrsolid"></view>
+      <view class="placeholderrbsolid"><button id="3-4" class="enterscorebtn" bindtap="enterscore">{{kkdata[groupIndex].player[3][4]}}</button></view>
+      <view class="placeholderrsolid"></view>
+      <view class="placeholderrsolid"></view>
+      <view class="placeholderrsolid"></view>
+      <view class="placeholderrbsolid"><button id="2-1" class="enterscorebtn" bindtap="enterscore">{{kkdata[groupIndex].player[2][1]}}</button></view>
+      <view class="placeholderp"></view>
+      <view class="placeholderp"></view>
+      <view class="placeholderp"></view>
+    </view>
+    <view class="column">
+      <view class="placeholderp"></view>
+      <view class="placeholderp"></view>
+      <view class="placeholderp"></view>
+      <view class="placeholderp"></view>
+      <view class="placeholderp"></view>
+      <view class="placeholderp"></view>
+      <view class="placeholderp"></view>
+      <view class="placeholderbsolid"><button id="3-0" class="enterscorebtn" bindtap="enterscore">{{kkdata[groupIndex].player[3][0]}}</button></view>
+      <view class="placeholderp"></view>
+      <view class="placeholderp"></view>
+      <view class="placeholderp"></view>
+      <view class="placeholderp"></view>
+      <view class="placeholderp"></view>
+      <view class="placeholderp"></view>
+      <view class="placeholderp"></view>
+    </view>
+  </view>
+  <espopup id='espopup' title='录比分' group="{{groupname}}" name1="{{player1name}}" name2="{{player2name}}"
+    player1="{{player1num}}" player2="{{player2num}}" matchtype="2" bind:attach="attach" />
+  <view class="hint">提示：胜者向右，负者向左</view>
+</view>
+
